@@ -1,0 +1,5 @@
+To read serial in terminal do this:
+
+screen /dev/tty.usbmodemfd1241 31250
+
+31250 is the baud rate for midi
