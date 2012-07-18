@@ -10,6 +10,8 @@ Osc osc1 = {0, 0, 0, 0};
 Osc osc2 = {0, 0, 0, 0};
 Osc osc3 = {0, 0, 0, 0};
 Osc osc4 = {0, 0, 0, 0};
+//Osc osc5 = {0, 0, 0, 0};
+//Osc osc6 = {0, 0, 0, 0};
 
 
 
@@ -55,14 +57,13 @@ void tickOsc(Osc &o) {
 }
 
 void setup() {
-  initOsc(osc1, 12); 
-  initOsc(osc2, 13); 
-  initOsc(osc3, 9);
-  initOsc(osc4, 10);
+  initOsc(osc1, 8); 
+  initOsc(osc2, 9); 
+  initOsc(osc3, 10);
+  initOsc(osc4, 11);
+ // initOsc(osc5, 12);
+ // initOsc(osc6, 13);
   
-  // we need an earth pin here
-  pinMode(8, OUTPUT);
-  digitalWrite(8, LOW);
   startMidi();
 
 }
@@ -77,6 +78,10 @@ void noteOn(int channel, int note, int vel) {
     playOsc(osc3, note);
   } else if(channel==4) {
     playOsc(osc4, note);
+ // } else if(channel==5) {
+  //  playOsc(osc5, note);
+ // } else if(channel==6) {
+  //  playOsc(osc6, note);
   }
 }
 
@@ -89,6 +94,10 @@ void noteOff(int channel, int note) {
     stopOsc(osc3);
   } else if(channel==4) {
     stopOsc(osc4);
+ // } else if(channel==5) {
+  //  stopOsc(osc5);
+  //} else if(channel==6) {
+ //   stopOsc(osc6);
   }
 }
 
@@ -106,4 +115,6 @@ void loop() {
   tickOsc(osc2);
   tickOsc(osc3);
   tickOsc(osc4);
+  //tickOsc(osc5);
+  //tickOsc(osc6);
 }

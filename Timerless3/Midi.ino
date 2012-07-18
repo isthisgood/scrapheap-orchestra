@@ -42,6 +42,7 @@ void updateMidi() {
     
     int st = HI_NIBBLE(midiByte2);
     int channel = LO_NIBBLE(midiByte2);
+    channel += 1;
     // now check to see if we have a midi
     if(st==NOTE_ON_STATUS) {
       if(midiByte0==0) { // if the volume is zero, it's a note off
