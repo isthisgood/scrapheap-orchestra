@@ -31,9 +31,9 @@ void setup() {
 
 
 void noteOn(int channel, int note, int vel) {
-  if(channel==2) {
+  if(channel==1) {
     playOsc(osc1, note);
-  } else if(channel==1) {
+  } else if(channel==2) {
     playOsc(osc2, note);
   } else if(channel==3) {
     playOsc(osc3, note);
@@ -47,9 +47,9 @@ void noteOn(int channel, int note, int vel) {
 }
 
 void noteOff(int channel, int note) {
-  if(channel==2) {
+  if(channel==1) {
     stopOsc(osc1);
-  } else if(channel==1) {
+  } else if(channel==2) {
     stopOsc(osc2);
   } else if(channel==3) {
     stopOsc(osc3);
