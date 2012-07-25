@@ -43,8 +43,7 @@ void noteOff(int channel, int note) {
     stopOsc(osc2);
   } else if(channel==3) {
     stopOsc(osc3);
-  } else if(channel==4) {
-    stopOsc(osc4);
+ 
  // } else if(channel==5) {
   //  stopOsc(osc5);
   //} else if(channel==6) {
