@@ -84,8 +84,8 @@ void setup()
   digitalWrite(brakeA, LOW);
   digitalWrite(brakeB, LOW);
   
-  attachInterrupt(0, goForward, RISING);
-  attachInterrupt(1, goBackward, RISING);
+  attachInterrupt(0, goForward, FALLING);
+  attachInterrupt(1, goBackward, FALLING);
   
   pinMode(2, INPUT);
   digitalWrite(2, HIGH);
@@ -111,7 +111,7 @@ void loop()
   if (currentNote < NUM_NOTES)
   {
     //myStepper.setStepDelay(notes[currentNote] * 1e2 * 1);
-    myStepper.setStepDelay(notes[currentNote] * 3e2 * 1);
+    myStepper.setStepDelay(notes[currentNote] * 4e2 * 1);
     myStepper.step(reverse * lengths[currentNote] * 1730 / notes[currentNote]);    
   }
   currentNote++;// = (currentNote + 1) % NUM_NOTES; 
@@ -135,7 +135,7 @@ void goBackward()
   //Serial.println("backward");
 }
 
-/*
+
 void serialEvent() {
   while (Serial.available()) {
     // get the new byte:
@@ -143,5 +143,4 @@ void serialEvent() {
     Serial.read();
   }
 }
-*/
 
