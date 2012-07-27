@@ -5,6 +5,16 @@
 
 
 
+
+void addStepOsc(int pinA, int pinB, int pinC, int pinD) {
+  StepOsc *o = new StepOsc();
+  addObject(o, tickStepOsc, playStepOsc, stopStepOsc, NULL);
+}
+
+
+
+
+
 //int out = 0;
 void initStepOsc(StepOsc &o, int pinA, int pinB, int pinC, int pinD) {
   pinMode(pinA, OUTPUT);

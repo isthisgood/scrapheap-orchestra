@@ -1,3 +1,13 @@
+
+
+void addStepOsc(int pinA, int pinB, int pinC, int pinD);
+
+/////////////////////////////////////////////////////////////////////////
+// You don't need to touch anything below this line
+
+
+
+
 struct StepOsc {
   unsigned int uPeriod;
   unsigned int halfPeriod;
@@ -14,7 +24,6 @@ struct StepOsc {
 };
 
 
-
 // initializes an oscillator on a pin.
 void initStepOsc(StepOsc &o, int pinA, int pinB, int pinC, int pinD);
 
@@ -29,5 +38,6 @@ void stopStepOsc(StepOsc &o);
 
 // call this on every osc you want to play in your sound loop
 void tickStepOsc(StepOsc &o);
+
 
 

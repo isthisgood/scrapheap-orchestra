@@ -1,3 +1,11 @@
+
+
+
+void addOsc(int pin);
+
+/////////////////////////////////////////////////////////////////////////
+// You don't need to touch anything below this line
+
 struct Osc {
   unsigned int uPeriod;
   unsigned int halfPeriod;
@@ -5,6 +13,7 @@ struct Osc {
   int pin;
   
 };
+
 
 // initializes an oscillator on a pin.
 void initOsc(Osc &o, int pin);
