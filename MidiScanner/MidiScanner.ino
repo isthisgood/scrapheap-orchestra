@@ -70,8 +70,8 @@ void setup() {
   digitalWrite(brakeB, LOW);
 
   // setup microswitches  
-  attachInterrupt(0, goForward, RISING);
-  attachInterrupt(1, goBackward, RISING);
+  attachInterrupt(0, goForward, FALLING);
+  attachInterrupt(1, goBackward, FALLING);
   
   pinMode(2, INPUT);
   digitalWrite(2, HIGH);
@@ -80,14 +80,11 @@ void setup() {
   digitalWrite(3, HIGH);
   
   pinMode(10, OUTPUT);
-  
-  playOsc(osc1, 20);
-  stopOsc(osc1);
 }
 
 
 void noteOn(int channel, int note, int vel) {
-  if (channel == 2)
+  if (channel == 1)
   {
     digitalWrite(pwmA, HIGH);
     digitalWrite(pwmB, HIGH);
@@ -97,7 +94,7 @@ void noteOn(int channel, int note, int vel) {
 }
 
 void noteOff(int channel, int note) {
-  if (channel == 2)
+  if (channel == 1)
   {
     digitalWrite(pwmA, LOW);
     digitalWrite(pwmB, LOW);

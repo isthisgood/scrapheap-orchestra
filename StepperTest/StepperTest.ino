@@ -81,8 +81,9 @@ void setup() {
   
   pinMode(10, OUTPUT);
   
-  playOsc(osc1, 20);
-  stopOsc(osc1);
+  digitalWrite(pwmA, HIGH);
+  digitalWrite(pwmB, HIGH);
+  playOsc(osc1, 64);
 }
 
 
