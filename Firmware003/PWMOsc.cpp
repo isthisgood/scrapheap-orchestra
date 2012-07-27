@@ -1,5 +1,5 @@
 
-#include "Osc.h"
+#include "PWMOsc.h"
 #include <Arduino.h>
 #include "OscUtils.h"
 #include "Runner.h"
@@ -8,10 +8,10 @@
 
 
 
-void addOsc(MidiMap midi, int pin) {
-  Osc *osc = new Osc;
-  initOsc(osc, pin);
-  addObject(midi, osc, (tickFn)tickOsc, (noteOnFn) playOsc, (noteOffFn)stopOsc, (ccFn)ccOsc);
+void addPWMOsc(MidiMap midi, int pin) {
+  PWMOsc *osc = new PWMOsc;
+  initPWMOsc(osc, pin);
+  addObject(midi, osc, (tickFn)tickPWMOsc, (noteOnFn) playPWMOsc, (noteOffFn)stopPWMOsc, (ccFn)ccPWMOsc);
 }
 
 
@@ -19,11 +19,11 @@ void addOsc(MidiMap midi, int pin) {
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
 
-shiftIn
 
 
 
-void initOsc(Osc *o, int pin) {
+
+void initPWMOsc(PWMOsc *o, int pin) {
   pinMode(pin, OUTPUT);
   o->pin = pin;
   o->uPeriod = 0;
@@ -32,36 +32,37 @@ void initOsc(Osc *o, int pin) {
 }
 
 
+void applyPWM(PWMOsc *o) {
+  float hp = o->uPeriod/2;
+  float p = (float)o->pwmValue/127.f;
+  hp *= 1.f - p;
+  o->halfPeriod = hp;
+}
 
-void playOsc(Osc *o, int note) {
+
+void playPWMOsc(PWMOsc *o, int note) {
   float f = mtof(note);
   float u = 1000000.f/f;
   o->uPeriod = u;
-  o->halfPeriod = o->uPeriod/2;
-  o->note = note;
+  applyPWM(o);
+  
 }
 
-void stopOsc(Osc *o) {
+void stopPWMOsc(PWMOsc *o) {
   o->uPeriod = 0;
   o->halfPeriod = 0;
   digitalWrite(o->pin, 0);
   o->out = 0;
 }
 
-void ccOsc(Osc *o, int ctrlId, int val) {
-    //if(ctrlId==-1) {
-      float f = mtof(o->note);
-      float power = val - 63;
-      power /= 63;
-      f *= pow(2, power);
-      float u = 1000000.f/f;
-      o->uPeriod = u;
-      o->halfPeriod = o->uPeriod/2;
-   //}
+
+void ccPWMOsc(PWMOsc *o, int num, int val) {
+  o->pwmValue = val;
+  applyPWM(o);
 }
 
 
-void tickOsc(Osc *o) {
+void tickPWMOsc(PWMOsc *o) {
   if(o->uPeriod>0) {
     unsigned long pos = us % o->uPeriod;
     if(pos>o->halfPeriod != !o->out) {

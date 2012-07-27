@@ -19,7 +19,6 @@ void addOsc(MidiMap midi, int pin) {
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
 
-shiftIn
 
 
 
