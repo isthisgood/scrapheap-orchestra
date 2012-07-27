@@ -3,6 +3,24 @@
 #include <Arduino.h>
 #include "OscUtils.h"
 
+
+
+
+
+
+void addOsc(int pin) {
+
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////
+// You don't need to touch anything below this line
+
+
+
+
+
 void initOsc(Osc &o, int pin) {
   pinMode(pin, OUTPUT);
   o.pin = pin;
