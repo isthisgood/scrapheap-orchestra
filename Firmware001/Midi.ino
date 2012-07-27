@@ -1,6 +1,6 @@
 
 #define MIDI_BAUD_RATE 31250
-
+#include "Runner.h"
 
 // to enable midi status
 //#define USING_CC
