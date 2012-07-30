@@ -33,6 +33,8 @@
 #define DIR3 A4
 #define DIR4 7
 
+
+
 #define FET1 5
 #define FET2 6
 #define FET3 9
@@ -43,6 +45,28 @@
 #define EN2 6
 #define EN3 5
 #define EN4 4
+
+// likewise these are shift
+#define LED1 15
+#define LED2 14
+#define LED3 13
+#define LED4 12
+#define LED5 11
+#define LED6 10
+#define LED7 9
+#define LED8 8
+
+// optoisolators
+#define OP1	3
+#define OP2	2
+#define OP3	1
+#define OP4	0
+//These are the pins that will talk to the shift register through SPI
+#define SDI    11    //Data
+#define CLK    13    //Clock
+#define LE     12    //Latch
+
+#define LEDEN 8 // active low (activate shift register enble)
 
 #define LIMIT1 3
 #define LIMIT2 2

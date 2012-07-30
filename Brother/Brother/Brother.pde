@@ -32,14 +32,24 @@
 #include "Midi.h"
 #include "VelOsc.h"
 #include "Switcher.h"
-
+#include "ShiftRegister.h"
 #include "constants.h"
-
+#include "ShiftSwitcher.h"
 
 
 
 void setup() {
 
+    
+    // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
+    //addVelOsc(midimap(CHANNEL_1), 12);
+    //addSwitcher(midimap(CHANNEL_2), 13);
+    //addOsc(midimap(CHANNEL_4), 4);
+    
+    //addSimpleStepperOsc(midimap(CHANNEL_1), );
+    
+   
+    
     initRunner();
 	
 	int id = EEPROM.read(0);
@@ -61,12 +71,6 @@ void setup() {
     }
 }
 
-
-
-
-
 void loop() {
     runRunner();
-
-	
 }

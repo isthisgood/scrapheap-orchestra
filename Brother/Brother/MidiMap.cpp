@@ -28,6 +28,7 @@ MidiMap midimap(int channel, int from, int to)  {
   m.transpose = 0;
   return m;
 }
+
 MidiMap midimap(int channel, int from, int to, int transpose) {
   MidiMap m;
   m.channel = channel;

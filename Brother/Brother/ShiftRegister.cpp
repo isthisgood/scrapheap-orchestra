@@ -1,5 +1,6 @@
 #include "ShiftRegister.h"
 #include <Arduino.h>
+#include "constants.h"
 
 
 unsigned char shiftByte1 = 0;
@@ -10,6 +11,9 @@ void setupShiftRegister() {
   pinMode(SDI, OUTPUT);
   pinMode(CLK, OUTPUT);
   pinMode(LE,OUTPUT);
+	pinMode(LEDEN, OUTPUT);
+	digitalWrite(LEDEN, LOW);
+	
   digitalWrite(LE,HIGH);
   delay(30);
   
@@ -17,16 +21,24 @@ void setupShiftRegister() {
   shiftPin(0, 0);
 }
 
-
+void disableShifter() {
+	digitalWrite(LEDEN, HIGH);
+}
 
 void shiftPin(int pos, int value) {
+digitalWrite(CLK, LOW);
+	
+	
+  digitalWrite(LEDEN, HIGH);
   if(pos<8) {
-      bitWrite(shiftByte1, pos, value);
+		bitWrite(shiftByte1, pos, value);
   } else {
-    bitWrite(shiftByte2, pos-8, value);
+	  bitWrite(shiftByte2, (pos-8), value);
   }
-  digitalWrite(LE,LOW);
-  shiftOut(SDI,CLK,MSBFIRST,shiftByte2);    //High byte first
-  shiftOut(SDI,CLK,MSBFIRST,shiftByte1);           //Low byte second
-  digitalWrite(LE,HIGH);
+
+	digitalWrite(LE,LOW);
+	shiftOut(SDI,CLK,MSBFIRST,shiftByte2);    //High byte first
+	shiftOut(SDI,CLK,MSBFIRST,shiftByte1);           //Low byte second
+	digitalWrite(LE,HIGH);
+	digitalWrite(LEDEN, LOW);
 }

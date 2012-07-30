@@ -22,7 +22,6 @@ int midiByte2  = -1;
  */
 void startMidi() {
  
-  
   Serial.begin(MIDI_BAUD_RATE);
 }
 
