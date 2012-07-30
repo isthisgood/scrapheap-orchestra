@@ -63,7 +63,7 @@ void setup() {
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
 		case 1:
-			addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
+			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
 			break;
         default:
             addOsc(midimap(CHANNEL_1), FET1);

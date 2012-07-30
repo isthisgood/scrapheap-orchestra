@@ -68,5 +68,5 @@
 
 #define LEDEN 8 // active low (activate shift register enble)
 
-#define LIMIT1 3
-#define LIMIT2 2
+#define LIMIT1 2
+#define LIMIT2 3

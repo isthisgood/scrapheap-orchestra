@@ -30,7 +30,9 @@ void initSimpleStepOsc(SimpleStepOsc *o, int dirPin, int stepPin, int enableShif
     
     o->checked = 0;
     o->disabledTime = 0;
-  
+    
+    digitalWrite(stepPin, o->out);
+    digitalWrite(dirPin, o->dir);
 }
 
 void playSimpleStepOsc(SimpleStepOsc *o, int note, int vel)
@@ -57,7 +59,6 @@ void stopSimpleStepOsc(SimpleStepOsc *o)
     
     o->checked = 0;
     o->disabledTime = 0;
-    o->disabledTime = 0;
 }
 
 void checkLimits(SimpleStepOsc *o);
@@ -77,7 +78,7 @@ void tickSimpleStepOsc(SimpleStepOsc *o)
         }
         
         unsigned long checkPos = us % LIMIT_CHECK;
-        if (checkPos > LIMIT_CHECK != !o->checked)
+        if (checkPos > HALF_LIMIT_CHECK != !o->checked)
         {
             o->checked ^= 1;
             if (o->checked) checkLimits(o);
@@ -89,7 +90,7 @@ void checkLimits(SimpleStepOsc *o)
 {
     if (us > o->disabledTime && digitalRead(o->reversePin) == LOW)
     {
-        o->dir ^= o->dir;
+        o->dir ^= 1;
         o->disabledTime = us + DISABLED_PERIOD;
         digitalWrite(o->dirPin, o->dir);
     }
