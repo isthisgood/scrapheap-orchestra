@@ -40,7 +40,6 @@
 
 void setup() {
 
-    dipValue = getDipValues();
     initRunner();
 	
 	int id = EEPROM.read(0);
@@ -48,7 +47,9 @@ void setup() {
     switch (id)
     {
         case 0:
-            addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addOsc(midimap(CHANNEL_1), FET1);
+            //addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            //addOsc(midimap(CHANNEL_1), FET1);
             break;
             
         default:
