@@ -20,7 +20,7 @@
 #include "MidiMap.h"
 
 
-
+// use STEPPER_n for 'which'
 void addDirStepOsc(MidiMap midi, int which, int stepDirCC);
 
 void addDirStepOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin, int stepDirCC);
@@ -39,15 +39,15 @@ struct DirStepOsc {
 	int stepPin;
 	int directionPin;
 	int enableShiftPin;
+	int stepDirCC;
 	
-	int pos;
 	int out;
-	
+	int dir;
 };
 
 
 // initializes an oscillator on a pin.
-void initDirStepOsc(DirStepOsc *o, int stepPin, int directionPin, int enableShiftPin);
+void initDirStepOsc(DirStepOsc *o, int stepPin, int directionPin, int enableShiftPin, int stepDirCC);
 
 // this starts a midi note playing
 void playDirStepOsc(DirStepOsc *o, int note, int vel);
@@ -56,7 +56,7 @@ void playDirStepOsc(DirStepOsc *o, int note, int vel);
 void stopDirStepOsc(DirStepOsc *o);
 
 // this stops the sound outputting from an oscillator
-void ccDirStepOsc(DirStepOsc *o);
+void ccDirStepOsc(DirStepOsc *o, int cc, int value);
 
 
 

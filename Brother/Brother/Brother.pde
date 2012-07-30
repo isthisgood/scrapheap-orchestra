@@ -1,6 +1,6 @@
 /// 
 /// @mainpage	Brother 
-/// @details	<#details#>
+/// @details	details
 /// @n 
 /// @n 
 /// @n @a	Developed with [embedXcode]( http://embedXcode.weebly.com )
@@ -8,7 +8,7 @@
 /// @author	Neil Mendoza
 /// @author	__MyCompanyName__
 /// @date	27/07/2012 11:34
-/// @version	<#version#>
+/// @version	version
 /// 
 /// @copyright	© Neil Mendoza, 2012
 /// @copyright	CC = BY NC SA
@@ -36,6 +36,7 @@
 #include "constants.h"
 #include "ShiftSwitcher.h"
 #include "DirStepOsc.h"
+#include "SimpleStepOsc.h"
 
 
 
@@ -52,7 +53,7 @@ void setup() {
    
     
     initRunner();
-	
+//	EEPROM.write(0, 4);
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -63,7 +64,9 @@ void setup() {
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
 		case 1:
-			addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
+			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1, 20);
+			addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+		//	addSwitcher(midimap(CHANNEL_1), 13);
 			break;
         default:
             addOsc(midimap(CHANNEL_1), FET1);

@@ -70,3 +70,10 @@
 
 #define LIMIT1 3
 #define LIMIT2 2
+
+// convenience enumeration for things like DirStepOsc
+// which will let you define EN1, DIR1 and STEP1 all at once.
+#define STEPPER_1 1
+#define STEPPER_2 2
+#define STEPPER_3 3
+#define STEPPER_4 4
