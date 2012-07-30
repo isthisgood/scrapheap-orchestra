@@ -3,7 +3,7 @@
 /// @details	<#details#>
 /// @n 
 /// @n 
-/// @n @a	Developed with [embedXcode](http://embedXcode.weebly.com)
+/// @n @a	Developed with [embedXcode]( http://embedXcode.weebly.com )
 /// 
 /// @author	Neil Mendoza
 /// @author	__MyCompanyName__

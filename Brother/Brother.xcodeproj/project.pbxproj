@@ -273,6 +273,8 @@
 		289F1ADD15C692AE00B15E1B /* Switcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Switcher.h; sourceTree = "<group>"; };
 		289F1ADE15C692AE00B15E1B /* VelOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VelOsc.cpp; sourceTree = "<group>"; };
 		289F1ADF15C692AE00B15E1B /* VelOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelOsc.h; sourceTree = "<group>"; };
+		289F1AE215C697BA00B15E1B /* SimpleStepOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleStepOsc.cpp; sourceTree = "<group>"; };
+		289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleStepOsc.h; sourceTree = "<group>"; };
 		28ACB45715C2A96C00AA273D /* libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libraries; path = ../../../../../../Documents/Arduino/libraries; sourceTree = "<group>"; };
 		28B6F1D715C2A63400BB3146 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B6F1E315C2A63400BB3146 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -795,6 +797,8 @@
 			children = (
 				289F1ACC15C692AE00B15E1B /* Osc.cpp */,
 				289F1ACD15C692AE00B15E1B /* Osc.h */,
+				289F1AE215C697BA00B15E1B /* SimpleStepOsc.cpp */,
+				289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */,
 				289F1ADA15C692AE00B15E1B /* StepOsc.cpp */,
 				289F1ADB15C692AE00B15E1B /* StepOsc.h */,
 				289F1AD015C692AE00B15E1B /* PWMOsc.cpp */,
@@ -2256,11 +2260,12 @@
 		};
 		28B6F1DB15C2A63400BB3146 /* All */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "all -C $(PROJECT)";
+			buildArgumentsString = all;
 			buildConfigurationList = 28B6F53015C2A63700BB3146 /* Build configuration list for PBXLegacyTarget "All" */;
 			buildPhases = (
 			);
 			buildToolPath = make;
+			buildWorkingDirectory = "$(PROJECT)";
 			dependencies = (
 			);
 			name = All;
@@ -2308,11 +2313,12 @@
 		};
 		28B6F1DF15C2A63400BB3146 /* Make */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "make -C $(PROJECT)";
+			buildArgumentsString = make;
 			buildConfigurationList = 28B6F53C15C2A63700BB3146 /* Build configuration list for PBXLegacyTarget "Make" */;
 			buildPhases = (
 			);
 			buildToolPath = make;
+			buildWorkingDirectory = "$(PROJECT)";
 			dependencies = (
 			);
 			name = Make;
@@ -2321,11 +2327,12 @@
 		};
 		28B6F1E015C2A63400BB3146 /* Build */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "build -C $(PROJECT)";
+			buildArgumentsString = build;
 			buildConfigurationList = 28B6F53F15C2A63700BB3146 /* Build configuration list for PBXLegacyTarget "Build" */;
 			buildPhases = (
 			);
 			buildToolPath = make;
+			buildWorkingDirectory = "$(PROJECT)";
 			dependencies = (
 			);
 			name = Build;
