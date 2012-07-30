@@ -48,7 +48,7 @@ void setup() {
     switch (id)
     {
         case 0:
-            //addSimpleStepOsc();
+            addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             break;
             
         default:

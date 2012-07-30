@@ -33,8 +33,6 @@
 #define DIR3 A4
 #define DIR4 7
 
-
-
 #define FET1 5
 #define FET2 6
 #define FET3 9
@@ -46,4 +44,5 @@
 #define EN3 5
 #define EN4 4
 
-
+#define LIMIT1 3
+#define LIMIT2 2
