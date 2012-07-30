@@ -18,7 +18,7 @@
 
 
 #include "Arduino.h"
-#include "EEPROM.h"
+//#include "EEPROM.h"
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
@@ -32,9 +32,9 @@
 #include "Midi.h"
 #include "VelOsc.h"
 #include "Switcher.h"
-
+#include "ShiftRegister.h"
 #include "constants.h"
-
+#include "ShiftSwitcher.h"
 
 
 
@@ -48,35 +48,46 @@ void setup() {
     
     //addSimpleStepperOsc(midimap(CHANNEL_1), );
     
-    
+   
     
     initRunner();
 	
-	int id = EEPROM.read(0);
-    
+	
+	//addShiftSwitcher(midimap(CHANNEL_1), LED1);
+////	addShiftSwitcher(midimap(CHANNEL_2), LED2);
+	//addShiftSwitcher(midimap(CHANNEL_3), LED3);
+	//addShiftSwitcher(midimap(CHANNEL_4), LED4);
+
+	addShiftSwitcher(midimap(CHANNEL_1), LED1);
+	addShiftSwitcher(midimap(CHANNEL_2), LED2);
+	addShiftSwitcher(midimap(CHANNEL_3), LED3);
+	addShiftSwitcher(midimap(CHANNEL_4), LED4);
+	
+	
+	/*int id = EEPROM.read(0);
+    id = 1;
     switch (id)
     {
         case 0:
             break;
-            
+		case 1:
+			addShiftSwitcher(midimap(CHANNEL_1), LED1);
+            addShiftSwitcher(midimap(CHANNEL_2), LED2);
+            addShiftSwitcher(midimap(CHANNEL_3), LED3);
+            addShiftSwitcher(midimap(CHANNEL_4), LED4);
+			break;
         default:
             addOsc(midimap(CHANNEL_1), FET1);
             addOsc(midimap(CHANNEL_2), FET2);
             addOsc(midimap(CHANNEL_3), FET3);
             addOsc(midimap(CHANNEL_4), FET4);
             break;
-    }
+    }*/
 	
 	//addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
 	
 }
 
-
-
-
-
 void loop() {
     runRunner();
-
-	
 }

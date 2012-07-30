@@ -59,20 +59,18 @@ void initRunner() {
 	setupShiftRegister();
 }
 
+
 void runRunner() {
-  updateMidi();
+	updateMidi();
   
-  oscClock();
-  doAllTicks();
+	oscClock();
+	doAllTicks();
 }
 
 int numOscs = 0;
 
 
 tickFn     tickFunctions[MAX_NUM_OSCS];
-//noteOnFn   noteOnFunctions[MAX_NUM_OSCS];
-//noteOffFn  noteOffFunctions[MAX_NUM_OSCS];
-//ccFn       ccFunctions[MAX_NUM_OSCS];
 
 void *oscs[MAX_NUM_OSCS];
 
@@ -136,6 +134,7 @@ void noteOn(int channel, int note, int vel) {
       }
     }
   }
+	
 }
 
 

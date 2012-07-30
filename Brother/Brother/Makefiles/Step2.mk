@@ -478,7 +478,7 @@ endif
 # Rules
 # ----------------------------------
 #
-all: 		clean build upload serial
+all: 		clean build upload # serial
 		@echo " ---- all ---- "
 
 build: 		clean compile
