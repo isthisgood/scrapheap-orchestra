@@ -16,7 +16,7 @@
 
 
 void addStepDirOsc(MidiMap midi, int which) {
-	addStepDirOsc(midi, );
+	//addStepDirOsc(midi, );
 }
 
 
@@ -62,10 +62,10 @@ void playStepDirOsc(StepDirOsc *o, int note, int vel) {
 void stopStepDirOsc(StepDirOsc *o) {
 	o->uPeriod = 0;
 	o->halfPeriod = 0;
-	digitalWrite(o->pinA, 0);
+	/*digitalWrite(o->pinA, 0);
 	digitalWrite(o->pinB, 0);
 	digitalWrite(o->pinC, 0);
-	digitalWrite(o->pinD, 0);
+	digitalWrite(o->pinD, 0);*/
 	
 	o->pos = 0;
 	o->out = 0;
@@ -87,7 +87,7 @@ void tickStepDirOsc(StepDirOsc *o) {
 			
 			
 			// then step
-			stepStepOsc(o);
+		//	stepStepOsc(o);
 		}
 	}
 }

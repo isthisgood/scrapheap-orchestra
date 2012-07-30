@@ -33,7 +33,7 @@
 #include "VelOsc.h"
 #include "Switcher.h"
 
-
+#include "constants.h"
 
 
 
@@ -50,8 +50,6 @@ void setup() {
     
     
     
-	dipValue = getDipValues();
-
     initRunner();
 	
 	int id = EEPROM.read(0);
