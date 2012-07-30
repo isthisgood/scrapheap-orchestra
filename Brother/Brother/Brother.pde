@@ -36,7 +36,7 @@
 #include "constants.h"
 #include "ShiftSwitcher.h"
 #include "SimpleStepOsc.h"
-
+#include "DirStepOsc.h"
 
 
 void setup() {
@@ -62,7 +62,9 @@ void setup() {
             addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
-            
+		case 1:
+			addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
+			break;
         default:
             addOsc(midimap(CHANNEL_1), FET1);
             addOsc(midimap(CHANNEL_2), FET2);
