@@ -48,7 +48,7 @@ void setup() {
     {
         case 0:
             addOsc(midimap(CHANNEL_1), FET1);
-            //addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
             
