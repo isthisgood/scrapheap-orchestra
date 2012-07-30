@@ -32,7 +32,7 @@ void initOsc(Osc *o, int pin) {
 
 
 
-void playOsc(Osc *o, int note) {
+void playOsc(Osc *o, int note, int vel) {
   float f = mtof(note);
   float u = 1000000.f/f;
   o->uPeriod = u;

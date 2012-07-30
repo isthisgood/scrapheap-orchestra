@@ -29,7 +29,7 @@ struct StepOsc {
 void initStepOsc(StepOsc *o, int pinA, int pinB, int pinC, int pinD);
 
 // this starts a midi note playing
-void playStepOsc(StepOsc *o, int note);
+void playStepOsc(StepOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
 void stopStepOsc(StepOsc *o);

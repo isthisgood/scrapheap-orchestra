@@ -10,6 +10,7 @@ struct MidiMap {
 
 // use this to choose where to listen to midi from
 MidiMap midimap(int channel);
+MidiMap midimap(int channel, int note);
 MidiMap midimap(int channel, int from, int to);
 MidiMap midimap(int channel, int from, int to, int transpose);
 

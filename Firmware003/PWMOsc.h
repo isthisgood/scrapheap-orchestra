@@ -20,7 +20,7 @@ struct PWMOsc {
 void initPWMOsc(PWMOsc *o, int pin);
 
 // this starts a midi note playing
-void playPWMOsc(PWMOsc *o, int note);
+void playPWMOsc(PWMOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
 void stopPWMOsc(PWMOsc *o);

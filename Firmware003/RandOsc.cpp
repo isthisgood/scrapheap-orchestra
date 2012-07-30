@@ -33,7 +33,7 @@ void initRandOsc(RandOsc *o, int pin) {
 }
 
 
-void playRandOsc(RandOsc *o, int note) {
+void playRandOsc(RandOsc *o, int note, int vel) {
   float f = mtof(note);
   float u = 1000000.f/f;
   o->uPeriod = u;

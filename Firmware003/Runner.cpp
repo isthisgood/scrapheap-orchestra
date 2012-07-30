@@ -4,12 +4,17 @@
 
 #include "Midi.h"
 #include "ShiftRegister.h"
-
+#include "OscUtils.h"
 void initRunner() {
   startMidi();
   setupShiftRegister();
 }
-
+void runRunner() {
+  updateMidi();
+  
+  oscClock();
+  doAllTicks();
+}
 
 int numOscs = 0;
 
@@ -76,7 +81,7 @@ void noteOn(int channel, int note, int vel) {
     if(midiListeners[i].channel == channel) { // if we're on the right midichannel
       if(midiListeners[i].noteOnFunc!=NULL) { // and there is a midi note on for that channel
         if(note>=midiListeners[i].midiMap.from && note<=midiListeners[i].midiMap.to) { // and the note is in range
-          (*midiListeners[i].noteOnFunc)(midiListeners[i].object, note+midiListeners[i].midiMap.transpose); // play it, offset by its transpose
+          (*midiListeners[i].noteOnFunc)(midiListeners[i].object, note+midiListeners[i].midiMap.transpose, vel); // play it, offset by its transpose
         }
       }
     }

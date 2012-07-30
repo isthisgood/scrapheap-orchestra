@@ -39,7 +39,7 @@ void initStepOsc(StepOsc *o, int pinA, int pinB, int pinC, int pinD) {
 
 
 
-void playStepOsc(StepOsc *o, int note) {
+void playStepOsc(StepOsc *o, int note, int vel) {
   float f = mtof(note);
   float u = 1000000.f/f;
   o->uPeriod = u;

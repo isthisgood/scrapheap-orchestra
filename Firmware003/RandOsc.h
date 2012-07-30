@@ -21,7 +21,7 @@ struct RandOsc {
 void initRandOsc(RandOsc *o, int pin);
 
 // this starts a midi note playing
-void playRandOsc(RandOsc *o, int note);
+void playRandOsc(RandOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
 void stopRandOsc(RandOsc *o);

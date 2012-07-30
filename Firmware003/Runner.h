@@ -14,7 +14,7 @@
 
 // these are the function pointers that point to the various parts of an oscillator
 
-typedef void(*noteOnFn)(void *, int note);
+typedef void(*noteOnFn)(void *, int note, int vel);
 typedef void(*noteOffFn)(void *);
 typedef void(*ccFn)(void *, int cid, int value);
 typedef void*  Object;
@@ -37,6 +37,6 @@ void doAllTicks();
 
 
 void initRunner();
-
+void runRunner();
 
 #endif // RUNNER_H

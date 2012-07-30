@@ -11,6 +11,15 @@ MidiMap midimap(int channel) {
   m.transpose = 0;
   return m;
 }
+
+MidiMap midimap(int channel, int note) {
+  MidiMap m;
+  m.channel = channel;
+  m.from = note;
+  m.to = note;
+  m.transpose = 0;
+}
+
 MidiMap midimap(int channel, int from, int to)  {
   MidiMap m;
   m.channel = channel;

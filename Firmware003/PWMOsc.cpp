@@ -40,7 +40,7 @@ void applyPWM(PWMOsc *o) {
 }
 
 
-void playPWMOsc(PWMOsc *o, int note) {
+void playPWMOsc(PWMOsc *o, int note, int vel) {
   float f = mtof(note);
   float u = 1000000.f/f;
   o->uPeriod = u;

@@ -20,7 +20,7 @@ struct Osc {
 void initOsc(Osc *o, int pin);
 
 // this starts a midi note playing
-void playOsc(Osc *o, int note);
+void playOsc(Osc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
 void stopOsc(Osc *o);
