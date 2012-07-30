@@ -35,10 +35,10 @@
 #include "ShiftRegister.h"
 #include "constants.h"
 #include "ShiftSwitcher.h"
+#include "SimpleStepOsc.h"
 #include "DirStepOsc.h"
 #include "SimpleStepOsc.h"
-
-
+#include "FloppyOsc.h"
 
 void setup() {
 
@@ -59,14 +59,15 @@ void setup() {
     switch (id)
     {
         case 0:
-            addOsc(midimap(CHANNEL_1), FET1);
+           // addOsc(midimap(CHANNEL_1), FET1);
             addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
 		case 1:
-			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1, 20);
-			addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-		//	addSwitcher(midimap(CHANNEL_1), 13);
+			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
+            addFloppyOsc(midimap(CHANNEL_3), ANA1, ANA2);
+            addOsc(midimap(CHANNEL_4), FET1);
 			break;
         default:
             addOsc(midimap(CHANNEL_1), FET1);

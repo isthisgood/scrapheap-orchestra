@@ -10,6 +10,7 @@
 #include "Arduino.h"
 #include "OscUtils.h"
 #include "Runner.h"
+#include "constants.h"
 
 #include "constants.h"
 #include "ShiftRegister.h"

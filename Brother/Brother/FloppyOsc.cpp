@@ -38,7 +38,7 @@ void playFloppyOsc(FloppyOsc *o, int note, int vel)
     o->halfPeriod = o->uPeriod/2;
 }
 
-void stopFloppyFloppyOsc(FloppyOsc *o)
+void stopFloppyOsc(FloppyOsc *o)
 {
     o->uPeriod = 0;
     o->halfPeriod = 0;

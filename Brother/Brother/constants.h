@@ -68,12 +68,7 @@
 
 #define LEDEN 8 // active low (activate shift register enble)
 
-#define LIMIT1 3
-#define LIMIT2 2
-
-// convenience enumeration for things like DirStepOsc
-// which will let you define EN1, DIR1 and STEP1 all at once.
-#define STEPPER_1 1
-#define STEPPER_2 2
-#define STEPPER_3 3
-#define STEPPER_4 4
+#define LIMIT1 2
+#define LIMIT2 3
+#define ANA1 A7
+#define ANA2 A6
