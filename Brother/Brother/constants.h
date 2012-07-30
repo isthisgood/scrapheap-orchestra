@@ -70,3 +70,5 @@
 
 #define LIMIT1 2
 #define LIMIT2 3
+#define ANA1 A7
+#define ANA2 A6

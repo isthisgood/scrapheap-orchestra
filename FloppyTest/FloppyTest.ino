@@ -3,8 +3,8 @@ int steps = 0;
 int stepDir = LOW;
 int currentState = LOW;
 
-const int DIR_PIN = 2;
-const int STEP_PIN = 3;
+const int DIR_PIN = A7;
+const int STEP_PIN = A6;
 
 void setup()
 {
