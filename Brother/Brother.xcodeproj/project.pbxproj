@@ -247,6 +247,7 @@
 		28B6F50015C2A63600BB3146 /* Supervisor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F4FF15C2A63600BB3146 /* Supervisor.cpp */; };
 		28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F50315C2A63600BB3146 /* TimedAction.cpp */; };
 		EABD5EB015C6E4AB00E1C489 /* StepDirOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABD5EAE15C6E4AB00E1C489 /* StepDirOsc.cpp */; };
+		EAEE2FD515C6EDEC00C18E97 /* EEPROM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAEE2FD315C6EDEC00C18E97 /* EEPROM.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,7 +279,6 @@
 		289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleStepOsc.h; sourceTree = "<group>"; };
 		289F1AE415C6CDA200B15E1B /* FloppyOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FloppyOsc.cpp; sourceTree = "<group>"; };
 		289F1AE515C6CDA200B15E1B /* FloppyOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloppyOsc.h; sourceTree = "<group>"; };
-		28ACB45715C2A96C00AA273D /* libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libraries; path = ../../../../../../Documents/Arduino/libraries; sourceTree = "<group>"; };
 		28B6F1D715C2A63400BB3146 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B6F1E315C2A63400BB3146 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		28B6F1E515C2A63400BB3146 /* Brother.pde */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = Brother.pde; sourceTree = "<group>"; };
@@ -795,6 +795,8 @@
 		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		EABD5EAE15C6E4AB00E1C489 /* StepDirOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StepDirOsc.cpp; sourceTree = "<group>"; };
 		EABD5EAF15C6E4AB00E1C489 /* StepDirOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepDirOsc.h; sourceTree = "<group>"; };
+		EAEE2FD315C6EDEC00C18E97 /* EEPROM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EEPROM.cpp; sourceTree = "<group>"; };
+		EAEE2FD415C6EDEC00C18E97 /* EEPROM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPROM.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -857,6 +859,8 @@
 				289F1AD615C692AE00B15E1B /* ShiftRegister.cpp */,
 				289F1AD715C692AE00B15E1B /* ShiftRegister.h */,
 				28B6F1E315C2A63400BB3146 /* main.cpp */,
+				EAEE2FD315C6EDEC00C18E97 /* EEPROM.cpp */,
+				EAEE2FD415C6EDEC00C18E97 /* EEPROM.h */,
 				28B6F1E515C2A63400BB3146 /* Brother.pde */,
 				28B6F1E615C2A63400BB3146 /* LocalLibrary.cpp */,
 				28B6F1E815C2A63400BB3146 /* LocalLibrary.h */,
@@ -879,7 +883,6 @@
 		28B6F1EB15C2A63400BB3146 /* Sketchbook */ = {
 			isa = PBXGroup;
 			children = (
-				28ACB45715C2A96C00AA273D /* libraries */,
 				28B6F1EC15C2A63400BB3146 /* Sketchbook.txt */,
 			);
 			name = Sketchbook;
@@ -2659,6 +2662,7 @@
 				28B6F50015C2A63600BB3146 /* Supervisor.cpp in Sources */,
 				28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */,
 				EABD5EB015C6E4AB00E1C489 /* StepDirOsc.cpp in Sources */,
+				EAEE2FD515C6EDEC00C18E97 /* EEPROM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

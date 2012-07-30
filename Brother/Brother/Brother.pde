@@ -33,7 +33,7 @@
 #include "VelOsc.h"
 #include "Switcher.h"
 
-
+#include "constants.h"
 
 
 
@@ -41,7 +41,6 @@
 void setup() {
 
     dipValue = getDipValues();
-
     initRunner();
 	
 	int id = EEPROM.read(0);
@@ -59,15 +58,6 @@ void setup() {
             addOsc(midimap(CHANNEL_4), FET4);
             break;
     }
-	
-	//addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
-	// addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
-    //addVelOsc(midimap(CHANNEL_1), 12);
-    //addSwitcher(midimap(CHANNEL_2), 13);
-    //addOsc(midimap(CHANNEL_4), 4);
-    
-    //addSimpleStepperOsc(midimap(CHANNEL_1), );
-    
 }
 
 
