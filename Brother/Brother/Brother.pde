@@ -18,6 +18,7 @@
 
 
 #include "Arduino.h"
+#include "EEPROM.h"
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
@@ -32,17 +33,13 @@
 #include "VelOsc.h"
 #include "Switcher.h"
 
-#define TXD 1
-#define DIR1 A0
-#define DIR2 A2
-#define DIR3 A4
-#define DIR4 7
 
 
 
 
 
 void setup() {
+
     
     // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
     //addVelOsc(midimap(CHANNEL_1), 12);
@@ -51,9 +48,28 @@ void setup() {
     
     //addSimpleStepperOsc(midimap(CHANNEL_1), );
     
+    
+    
 	dipValue = getDipValues();
 
     initRunner();
+	
+	int id = EEPROM.read(0);
+    
+    switch (id)
+    {
+        case 0:
+            break;
+            
+        default:
+            addOsc(midimap(CHANNEL_1), FET1);
+            addOsc(midimap(CHANNEL_2), FET2);
+            addOsc(midimap(CHANNEL_3), FET3);
+            addOsc(midimap(CHANNEL_4), FET4);
+            break;
+    }
+	
+	//addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
 	
 }
 

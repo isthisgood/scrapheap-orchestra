@@ -246,6 +246,7 @@
 		28B6F4FC15C2A63600BB3146 /* Stepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F4FB15C2A63600BB3146 /* Stepper.cpp */; };
 		28B6F50015C2A63600BB3146 /* Supervisor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F4FF15C2A63600BB3146 /* Supervisor.cpp */; };
 		28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F50315C2A63600BB3146 /* TimedAction.cpp */; };
+		EABD5EB015C6E4AB00E1C489 /* StepDirOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABD5EAE15C6E4AB00E1C489 /* StepDirOsc.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -792,6 +793,8 @@
 		28B6F52615C2A63600BB3146 /* reset.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = reset.py; path = Utilities/reset.py; sourceTree = "<group>"; };
 		28B6F52715C2A63600BB3146 /* doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = doxyfile; path = Utilities/doxyfile; sourceTree = "<group>"; };
 		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		EABD5EAE15C6E4AB00E1C489 /* StepDirOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StepDirOsc.cpp; sourceTree = "<group>"; };
+		EABD5EAF15C6E4AB00E1C489 /* StepDirOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepDirOsc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -806,6 +809,8 @@
 				289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */,
 				289F1ADA15C692AE00B15E1B /* StepOsc.cpp */,
 				289F1ADB15C692AE00B15E1B /* StepOsc.h */,
+				EABD5EAE15C6E4AB00E1C489 /* StepDirOsc.cpp */,
+				EABD5EAF15C6E4AB00E1C489 /* StepDirOsc.h */,
 				289F1AD015C692AE00B15E1B /* PWMOsc.cpp */,
 				289F1AD115C692AE00B15E1B /* PWMOsc.h */,
 				289F1AD215C692AE00B15E1B /* RandOsc.cpp */,
@@ -2653,6 +2658,7 @@
 				28B6F4FC15C2A63600BB3146 /* Stepper.cpp in Sources */,
 				28B6F50015C2A63600BB3146 /* Supervisor.cpp in Sources */,
 				28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */,
+				EABD5EB015C6E4AB00E1C489 /* StepDirOsc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

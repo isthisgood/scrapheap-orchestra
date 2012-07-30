@@ -12,25 +12,56 @@
  *
  *  Description: 
  *				 
- *  constants.h, created by Marek Bereza on 30/07/2012.
+ *  StepDirOsc.h, created by Marek Bereza on 30/07/2012.
  */
 
 #pragma once
 
-// some pin defs
-
-// the tx pin (digital pin 1)
-#define TXD 1
-
-
-#define DIR1 A0
-#define DIR2 A2
-#define DIR3 A4
-#define DIR4 7
+#include "MidiMap.h"
 
 
 
-#define FET1 5
-#define FET2 6
-#define FET3 9
-#define FET4 10
+void addStepDirOsc(MidiMap midi, int which);
+
+void addStepDirOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin);
+
+/////////////////////////////////////////////////////////////////////////
+// You don't need to touch anything below this line
+
+
+
+
+struct StepDirOsc {
+	unsigned int uPeriod;
+	unsigned int halfPeriod;
+	
+	
+	int stepPin;
+	int directionPin;
+	int enableShiftPin;
+	
+	int pos;
+	int out;
+	
+};
+
+
+// initializes an oscillator on a pin.
+void initStepDirOsc(StepDirOsc *o, int stepPin, int directionPin, int enableShiftPin);
+
+// this starts a midi note playing
+void playStepDirOsc(StepDirOsc *o, int note, int vel);
+
+// this stops the sound outputting from an oscillator
+void stopStepDirOsc(StepDirOsc *o);
+
+// this stops the sound outputting from an oscillator
+void ccStepDirOsc(StepDirOsc *o);
+
+
+
+// call this on every osc you want to play in your sound loop
+void tickStepDirOsc(StepDirOsc *o);
+
+
+
