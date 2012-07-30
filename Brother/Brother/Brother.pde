@@ -40,17 +40,7 @@
 
 void setup() {
 
-    
-    // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
-    //addVelOsc(midimap(CHANNEL_1), 12);
-    //addSwitcher(midimap(CHANNEL_2), 13);
-    //addOsc(midimap(CHANNEL_4), 4);
-    
-    //addSimpleStepperOsc(midimap(CHANNEL_1), );
-    
-    
-    
-	dipValue = getDipValues();
+    dipValue = getDipValues();
 
     initRunner();
 	
@@ -59,6 +49,7 @@ void setup() {
     switch (id)
     {
         case 0:
+            //addSimpleStepOsc();
             break;
             
         default:
@@ -70,7 +61,13 @@ void setup() {
     }
 	
 	//addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
-	
+	// addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
+    //addVelOsc(midimap(CHANNEL_1), 12);
+    //addSwitcher(midimap(CHANNEL_2), 13);
+    //addOsc(midimap(CHANNEL_4), 4);
+    
+    //addSimpleStepperOsc(midimap(CHANNEL_1), );
+    
 }
 
 

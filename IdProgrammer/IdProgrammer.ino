@@ -1,6 +1,6 @@
 #include <EEPROM.h>
 
-const int ID = 0
+const int ID = 0;
 
 void setup()
 {
