@@ -35,6 +35,7 @@
 #include "ShiftRegister.h"
 #include "constants.h"
 #include "ShiftSwitcher.h"
+#include "SimpleStepOsc.h"
 
 
 
