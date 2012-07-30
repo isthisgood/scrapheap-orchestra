@@ -5,10 +5,60 @@
 #include "Midi.h"
 #include "ShiftRegister.h"
 #include "OscUtils.h"
-void initRunner() {
-  startMidi();
-  setupShiftRegister();
+#include "constants.h"
+
+
+int dipValue;
+int getDipValues() {
+	pinMode(TXD, INPUT);
+	digitalWrite(TXD, HIGH);
+	
+	
+	pinMode(DIR1, OUTPUT);
+	pinMode(DIR2, OUTPUT);
+	pinMode(DIR3, OUTPUT);
+	pinMode(DIR4, OUTPUT);
+	
+	digitalWrite(DIR1, HIGH);
+	digitalWrite(DIR2, HIGH);
+	digitalWrite(DIR3, HIGH);
+	digitalWrite(DIR4, HIGH);
+	
+	
+	digitalWrite(DIR1, LOW);
+	
+	int p1 = !digitalRead(TXD);
+	
+	digitalWrite(DIR1, HIGH);
+	digitalWrite(DIR2, LOW);
+	int p2 = !digitalRead(TXD);
+	
+	digitalWrite(DIR2, HIGH);
+	digitalWrite(DIR3, LOW);
+	int p3 = !digitalRead(TXD);
+	
+	digitalWrite(DIR3, HIGH);
+	digitalWrite(DIR4, LOW);
+	
+	int p4 = !digitalRead(TXD);
+	
+	
+	pinMode(TXD, OUTPUT);
+	
+	
+	
+	return p1 + (p2<<1) + (p3<<2) + (p4<<3);
+	
+	//return 0;
 }
+
+
+void initRunner() {
+	dipValue = getDipValues();
+	startMidi();
+	setupShiftRegister();
+}
+
 void runRunner() {
   updateMidi();
   

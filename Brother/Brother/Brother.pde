@@ -17,21 +17,7 @@
 ///
 
 
-// Core library - IDE-based
-#if defined(WIRING) // Wiring specific
-#include "Wiring.h"
-#elif defined(MAPLE_IDE) // Maple specific
-#include "WProgram.h"   
-#elif defined(MPIDE) // chipKIT specific
-#include "WProgram.h"
-#elif defined(ENERGIA) // LaunchPad specific
-#include "Energia.h"
-#elif defined(ARDUINO) && (ARDUINO >= 100) // Arduino 1.0 specific
 #include "Arduino.h"
-#elif defined(ARDUINO) && (ARDUINO < 100) // Arduino 23 specific
-#include "WProgram.h"
-#endif
-
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
@@ -46,6 +32,15 @@
 #include "VelOsc.h"
 #include "Switcher.h"
 
+#define TXD 1
+#define DIR1 A0
+#define DIR2 A2
+#define DIR3 A4
+#define DIR4 7
+
+
+
+
 
 void setup() {
     
@@ -56,7 +51,10 @@ void setup() {
     
     //addSimpleStepperOsc(midimap(CHANNEL_1), );
     
+	dipValue = getDipValues();
+
     initRunner();
+	
 }
 
 
@@ -65,4 +63,6 @@ void setup() {
 
 void loop() {
     runRunner();
+
+	
 }

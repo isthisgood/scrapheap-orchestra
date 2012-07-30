@@ -791,6 +791,7 @@
 		28B6F52415C2A63600BB3146 /* References.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = References.txt; path = About/References.txt; sourceTree = "<group>"; };
 		28B6F52615C2A63600BB3146 /* reset.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = reset.py; path = Utilities/reset.py; sourceTree = "<group>"; };
 		28B6F52715C2A63600BB3146 /* doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = doxyfile; path = Utilities/doxyfile; sourceTree = "<group>"; };
+		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -840,6 +841,7 @@
 			children = (
 				289F1AE115C6942A00B15E1B /* Oscillator */,
 				289F1AC815C692AE00B15E1B /* Midi.cpp */,
+				EABD5EAD15C6DB0100E1C489 /* constants.h */,
 				289F1AC915C692AE00B15E1B /* Midi.h */,
 				289F1ACA15C692AE00B15E1B /* MidiMap.cpp */,
 				289F1ACB15C692AE00B15E1B /* MidiMap.h */,
@@ -2751,6 +2753,7 @@
 		28B6F53715C2A63700BB3146 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BOARD_PORT = "/dev/tty.usbserial*";
 			};
 			name = Debug;
 		};
