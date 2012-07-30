@@ -275,6 +275,8 @@
 		289F1ADF15C692AE00B15E1B /* VelOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelOsc.h; sourceTree = "<group>"; };
 		289F1AE215C697BA00B15E1B /* SimpleStepOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleStepOsc.cpp; sourceTree = "<group>"; };
 		289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleStepOsc.h; sourceTree = "<group>"; };
+		289F1AE415C6CDA200B15E1B /* FloppyOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FloppyOsc.cpp; sourceTree = "<group>"; };
+		289F1AE515C6CDA200B15E1B /* FloppyOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloppyOsc.h; sourceTree = "<group>"; };
 		28ACB45715C2A96C00AA273D /* libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libraries; path = ../../../../../../Documents/Arduino/libraries; sourceTree = "<group>"; };
 		28B6F1D715C2A63400BB3146 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B6F1E315C2A63400BB3146 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -795,6 +797,8 @@
 		289F1AE115C6942A00B15E1B /* Oscillator */ = {
 			isa = PBXGroup;
 			children = (
+				289F1AE415C6CDA200B15E1B /* FloppyOsc.cpp */,
+				289F1AE515C6CDA200B15E1B /* FloppyOsc.h */,
 				289F1ACC15C692AE00B15E1B /* Osc.cpp */,
 				289F1ACD15C692AE00B15E1B /* Osc.h */,
 				289F1AE215C697BA00B15E1B /* SimpleStepOsc.cpp */,
@@ -2655,7 +2659,7 @@
 /* Begin XCBuildConfiguration section */
 		28B6F52815C2A63700BB3146 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28B6F50915C2A63600BB3146 /* Arduino Uno.xcconfig */;
+			baseConfigurationReference = 28B6F50815C2A63600BB3146 /* Arduino mini pro.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -2722,6 +2726,7 @@
 		28B6F53115C2A63700BB3146 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BOARD_PORT = "/dev/tty.usbserial*";
 			};
 			name = Debug;
 		};
