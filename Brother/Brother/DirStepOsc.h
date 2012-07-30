@@ -12,7 +12,7 @@
  *
  *  Description: 
  *				 
- *  StepDirOsc.h, created by Marek Bereza on 30/07/2012.
+ *  DirStepOsc.h, created by Marek Bereza on 30/07/2012.
  */
 
 #pragma once
@@ -21,9 +21,9 @@
 
 
 
-void addStepDirOsc(MidiMap midi, int which);
+void addDirStepOsc(MidiMap midi, int which, int stepDirCC);
 
-void addStepDirOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin);
+void addDirStepOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin, int stepDirCC);
 
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
@@ -31,7 +31,7 @@ void addStepDirOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftP
 
 
 
-struct StepDirOsc {
+struct DirStepOsc {
 	unsigned int uPeriod;
 	unsigned int halfPeriod;
 	
@@ -47,21 +47,21 @@ struct StepDirOsc {
 
 
 // initializes an oscillator on a pin.
-void initStepDirOsc(StepDirOsc *o, int stepPin, int directionPin, int enableShiftPin);
+void initDirStepOsc(DirStepOsc *o, int stepPin, int directionPin, int enableShiftPin);
 
 // this starts a midi note playing
-void playStepDirOsc(StepDirOsc *o, int note, int vel);
+void playDirStepOsc(DirStepOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
-void stopStepDirOsc(StepDirOsc *o);
+void stopDirStepOsc(DirStepOsc *o);
 
 // this stops the sound outputting from an oscillator
-void ccStepDirOsc(StepDirOsc *o);
+void ccDirStepOsc(DirStepOsc *o);
 
 
 
 // call this on every osc you want to play in your sound loop
-void tickStepDirOsc(StepDirOsc *o);
+void tickDirStepOsc(DirStepOsc *o);
 
 
 

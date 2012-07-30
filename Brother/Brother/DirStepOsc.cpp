@@ -1,10 +1,10 @@
 /**
- *  StepDirOsc.cpp
+ *  DirStepOsc.cpp
  *
  *  Created by Marek Bereza on 30/07/2012.
  */
 
-#include "StepDirOsc.h"
+#include "DirStepOsc.h"
 
 #include "StepOsc.h"
 #include "Arduino.h"
@@ -15,16 +15,25 @@
 
 
 
-void addStepDirOsc(MidiMap midi, int which) {
-	//addStepDirOsc(midi, );
+void addDirStepOsc(MidiMap midi, int which, int stepDirCC) {
+	//addDirStepOsc(midi, );
+	if(which==1) {
+		addDirStepOsc(midi, STEP1, DIR1, EN1, stepDirCC);
+	} else if(which==2) {
+		addDirStepOsc(midi, STEP2, DIR2, EN2, stepDirCC);
+	} else if(which==3) {
+		addDirStepOsc(midi, STEP3, DIR3, EN3, stepDirCC);
+	} else if(which==4) {
+		addDirStepOsc(midi, STEP4, DIR4, EN4, stepDirCC);
+	}
 }
 
 
 
-void addStepDirOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin) {
-	StepDirOsc *o = new StepDirOsc();
-	initStepDirOsc(o, stepPin, directionPin, enableShiftPin);
-	addObject(midi, o, (tickFn)tickStepDirOsc, (noteOnFn)playStepDirOsc, (noteOffFn)stopStepDirOsc, (ccFn)ccStepDirOsc);
+void addDirStepOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftPin, int stepDirCC) {
+	DirStepOsc *o = new DirStepOsc();
+	initDirStepOsc(o, stepPin, directionPin, enableShiftPin);
+	addObject(midi, o, (tickFn)tickDirStepOsc, (noteOnFn)playDirStepOsc, (noteOffFn)stopDirStepOsc, (ccFn)ccDirStepOsc);
 }
 
 
@@ -32,7 +41,7 @@ void addStepDirOsc(MidiMap midi, int stepPin, int directionPin, int enableShiftP
 
 
 //int out = 0;
-void initStepDirOsc(StepDirOsc *o, int stepPin, int directionPin, int enableShiftPin) {
+void initDirStepOsc(DirStepOsc *o, int stepPin, int directionPin, int enableShiftPin) {
 	pinMode(stepPin, OUTPUT);
 	pinMode(directionPin, OUTPUT);
 	
@@ -48,10 +57,12 @@ void initStepDirOsc(StepDirOsc *o, int stepPin, int directionPin, int enableShif
 }
 
 
+void ccDirStepOsc(DirStepOsc *o) {
+
+}
 
 
-
-void playStepDirOsc(StepDirOsc *o, int note, int vel) {
+void playDirStepOsc(DirStepOsc *o, int note, int vel) {
 	float f = mtof(note);
 	float u = 1000000.f/f;
 	o->uPeriod = u;
@@ -59,7 +70,7 @@ void playStepDirOsc(StepDirOsc *o, int note, int vel) {
 	o->out = 0;
 }
 
-void stopStepDirOsc(StepDirOsc *o) {
+void stopDirStepOsc(DirStepOsc *o) {
 	o->uPeriod = 0;
 	o->halfPeriod = 0;
 	/*digitalWrite(o->pinA, 0);
@@ -73,7 +84,7 @@ void stopStepDirOsc(StepDirOsc *o) {
 
 
 
-void tickStepDirOsc(StepDirOsc *o) {
+void tickDirStepOsc(DirStepOsc *o) {
 	if(o->uPeriod>0) {
 		unsigned long pos = us % o->uPeriod;
 		if(pos>o->halfPeriod != !o->out) {
