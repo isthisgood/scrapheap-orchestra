@@ -35,44 +35,33 @@
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
+#include "StepOsc.h"
+#include "OscUtils.h"
+#include "Osc.h"
+#include "Runner.h"
+#include "MidiMap.h"
+#include "PWMOsc.h"
+#include "RandOsc.h"
+#include "Midi.h"
+#include "VelOsc.h"
+#include "Switcher.h"
 
 
-// Define variables and constants
-///
-/// @brief	Name of the LED
-/// @details	Each board has a LED but connected to a different pin
-///
-uint8_t LED1;
-
-
-///
-/// @brief	Setup
-/// @details	Define the pin the LED is connected to
-///
-// Add setup code 
 void setup() {
-    // LED1 pin number
-#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__) // Arduino specific
-    LED1 = 13; 
-#elif defined(__PIC32MX__) // chipKIT specific
-    LED1 = 13;
-#elif defined(__AVR_ATmega644P__) // Wiring specific
-    LED1 = 15; 
-#elif defined(__MSP430G2452__) || defined(__MSP430G2553__) || defined(__MSP430G2231__) // LaunchPad specific
-    LED1 = 2; 
-#elif defined(MCU_STM32F103RB) || defined(MCU_STM32F103ZE) || defined(MCU_STM32F103CB) || defined(MCU_STM32F103RE) // Maple specific
-    LED1 = BOARD_LED_PIN; 
-#endif
-
-    pinMode(LED1, OUTPUT);     
+    
+    // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
+    addVelOsc(midimap(CHANNEL_1), 12);
+    addSwitcher(midimap(CHANNEL_2), 13);
+    //addOsc(midimap(CHANNEL_4), 4);
+    
+    
+    initRunner();
 }
 
-///
-/// @brief	Loop
-/// @details	Call blink
-///
-// Add loop code 
+
+
+
+
 void loop() {
-  blink(LED1, 3, 333);
-  delay(2000);    
+    runRunner();
 }

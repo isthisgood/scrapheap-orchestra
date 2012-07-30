@@ -249,6 +249,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		289F1AC815C692AE00B15E1B /* Midi.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Midi.cpp; sourceTree = "<group>"; };
+		289F1AC915C692AE00B15E1B /* Midi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Midi.h; sourceTree = "<group>"; };
+		289F1ACA15C692AE00B15E1B /* MidiMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MidiMap.cpp; sourceTree = "<group>"; };
+		289F1ACB15C692AE00B15E1B /* MidiMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidiMap.h; sourceTree = "<group>"; };
+		289F1ACC15C692AE00B15E1B /* Osc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Osc.cpp; sourceTree = "<group>"; };
+		289F1ACD15C692AE00B15E1B /* Osc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Osc.h; sourceTree = "<group>"; };
+		289F1ACE15C692AE00B15E1B /* OscUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OscUtils.cpp; sourceTree = "<group>"; };
+		289F1ACF15C692AE00B15E1B /* OscUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OscUtils.h; sourceTree = "<group>"; };
+		289F1AD015C692AE00B15E1B /* PWMOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PWMOsc.cpp; sourceTree = "<group>"; };
+		289F1AD115C692AE00B15E1B /* PWMOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PWMOsc.h; sourceTree = "<group>"; };
+		289F1AD215C692AE00B15E1B /* RandOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RandOsc.cpp; sourceTree = "<group>"; };
+		289F1AD315C692AE00B15E1B /* RandOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandOsc.h; sourceTree = "<group>"; };
+		289F1AD415C692AE00B15E1B /* Runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Runner.cpp; sourceTree = "<group>"; };
+		289F1AD515C692AE00B15E1B /* Runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
+		289F1AD615C692AE00B15E1B /* ShiftRegister.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShiftRegister.cpp; sourceTree = "<group>"; };
+		289F1AD715C692AE00B15E1B /* ShiftRegister.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShiftRegister.h; sourceTree = "<group>"; };
+		289F1AD815C692AE00B15E1B /* ShiftSwitcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShiftSwitcher.cpp; sourceTree = "<group>"; };
+		289F1AD915C692AE00B15E1B /* ShiftSwitcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShiftSwitcher.h; sourceTree = "<group>"; };
+		289F1ADA15C692AE00B15E1B /* StepOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StepOsc.cpp; sourceTree = "<group>"; };
+		289F1ADB15C692AE00B15E1B /* StepOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepOsc.h; sourceTree = "<group>"; };
+		289F1ADC15C692AE00B15E1B /* Switcher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Switcher.cpp; sourceTree = "<group>"; };
+		289F1ADD15C692AE00B15E1B /* Switcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Switcher.h; sourceTree = "<group>"; };
+		289F1ADE15C692AE00B15E1B /* VelOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VelOsc.cpp; sourceTree = "<group>"; };
+		289F1ADF15C692AE00B15E1B /* VelOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VelOsc.h; sourceTree = "<group>"; };
 		28ACB45715C2A96C00AA273D /* libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libraries; path = ../../../../../../Documents/Arduino/libraries; sourceTree = "<group>"; };
 		28B6F1D715C2A63400BB3146 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B6F1E315C2A63400BB3146 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -766,6 +790,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		289F1AE115C6942A00B15E1B /* Oscillator */ = {
+			isa = PBXGroup;
+			children = (
+				289F1ACC15C692AE00B15E1B /* Osc.cpp */,
+				289F1ACD15C692AE00B15E1B /* Osc.h */,
+				289F1ADA15C692AE00B15E1B /* StepOsc.cpp */,
+				289F1ADB15C692AE00B15E1B /* StepOsc.h */,
+				289F1AD015C692AE00B15E1B /* PWMOsc.cpp */,
+				289F1AD115C692AE00B15E1B /* PWMOsc.h */,
+				289F1AD215C692AE00B15E1B /* RandOsc.cpp */,
+				289F1AD315C692AE00B15E1B /* RandOsc.h */,
+				289F1AD815C692AE00B15E1B /* ShiftSwitcher.cpp */,
+				289F1AD915C692AE00B15E1B /* ShiftSwitcher.h */,
+				289F1ADE15C692AE00B15E1B /* VelOsc.cpp */,
+				289F1ADF15C692AE00B15E1B /* VelOsc.h */,
+				289F1ADC15C692AE00B15E1B /* Switcher.cpp */,
+				289F1ADD15C692AE00B15E1B /* Switcher.h */,
+			);
+			name = Oscillator;
+			sourceTree = "<group>";
+		};
 		28B6F1CE15C2A63300BB3146 = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +830,17 @@
 		28B6F1E215C2A63400BB3146 /* Brother */ = {
 			isa = PBXGroup;
 			children = (
+				289F1AE115C6942A00B15E1B /* Oscillator */,
+				289F1AC815C692AE00B15E1B /* Midi.cpp */,
+				289F1AC915C692AE00B15E1B /* Midi.h */,
+				289F1ACA15C692AE00B15E1B /* MidiMap.cpp */,
+				289F1ACB15C692AE00B15E1B /* MidiMap.h */,
+				289F1ACE15C692AE00B15E1B /* OscUtils.cpp */,
+				289F1ACF15C692AE00B15E1B /* OscUtils.h */,
+				289F1AD415C692AE00B15E1B /* Runner.cpp */,
+				289F1AD515C692AE00B15E1B /* Runner.h */,
+				289F1AD615C692AE00B15E1B /* ShiftRegister.cpp */,
+				289F1AD715C692AE00B15E1B /* ShiftRegister.h */,
 				28B6F1E315C2A63400BB3146 /* main.cpp */,
 				28B6F1E515C2A63400BB3146 /* Brother.pde */,
 				28B6F1E615C2A63400BB3146 /* LocalLibrary.cpp */,
