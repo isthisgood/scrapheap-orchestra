@@ -32,20 +32,22 @@
 #include "VelOsc.h"
 #include "Switcher.h"
 
-#define TXD 1
-#define DIR1 A0
-#define DIR2 A2
-#define DIR3 A4
-#define DIR4 7
 
 
 
 
 
 void setup() {
-	dipValue = getDipValues();
 
     initRunner();
+	
+	
+	addOsc(midimap(CHANNEL_1), FET1);
+	addOsc(midimap(CHANNEL_2), FET2);
+	addOsc(midimap(CHANNEL_3), FET3);
+	addOsc(midimap(CHANNEL_4), FET4);
+	
+	addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
 	
 }
 
