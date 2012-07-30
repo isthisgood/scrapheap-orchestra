@@ -18,6 +18,7 @@
 
 
 #include "Arduino.h"
+#include "EEPROM.h"
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
@@ -39,15 +40,36 @@
 
 void setup() {
 
+    
+    // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
+    //addVelOsc(midimap(CHANNEL_1), 12);
+    //addSwitcher(midimap(CHANNEL_2), 13);
+    //addOsc(midimap(CHANNEL_4), 4);
+    
+    //addSimpleStepperOsc(midimap(CHANNEL_1), );
+    
+    
+    
+	dipValue = getDipValues();
+
     initRunner();
 	
+	int id = EEPROM.read(0);
+    
+    switch (id)
+    {
+        case 0:
+            break;
+            
+        default:
+            addOsc(midimap(CHANNEL_1), FET1);
+            addOsc(midimap(CHANNEL_2), FET2);
+            addOsc(midimap(CHANNEL_3), FET3);
+            addOsc(midimap(CHANNEL_4), FET4);
+            break;
+    }
 	
-	addOsc(midimap(CHANNEL_1), FET1);
-	addOsc(midimap(CHANNEL_2), FET2);
-	addOsc(midimap(CHANNEL_3), FET3);
-	addOsc(midimap(CHANNEL_4), FET4);
-	
-	addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
+	//addStepOsc(midimap(5), , <#int pinB#>, <#int pinC#>, <#int pinD#>)
 	
 }
 
