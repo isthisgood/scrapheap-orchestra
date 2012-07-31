@@ -70,6 +70,11 @@ void setup() {
             addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
 			break;
+            
+        case 2:
+            addSimpleStepOsc(midimap(CHANNEL_5), DIR1, STEP1, EN1, LIMIT1);
+            break;
+            
         default:
             addOsc(midimap(CHANNEL_1), FET1);
             addOsc(midimap(CHANNEL_2), FET2);

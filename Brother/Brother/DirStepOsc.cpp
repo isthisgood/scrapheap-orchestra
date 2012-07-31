@@ -20,7 +20,7 @@
 
 void addDirStepOsc(MidiMap midi, int which, int stepDirCC) {
 	//addDirStepOsc(midi, );
-	if(which==STEPPER_1) {
+	/*if(which==STEPPER_1) {
 		addDirStepOsc(midi, STEP1, DIR1, EN1, stepDirCC);
 	} else if(which==STEPPER_2) {
 		addDirStepOsc(midi, STEP2, DIR2, EN2, stepDirCC);
@@ -28,7 +28,7 @@ void addDirStepOsc(MidiMap midi, int which, int stepDirCC) {
 		addDirStepOsc(midi, STEP3, DIR3, EN3, stepDirCC);
 	} else if(which==STEPPER_4) {
 		addDirStepOsc(midi, STEP4, DIR4, EN4, stepDirCC);
-	}
+	}*/
 }
 
 
