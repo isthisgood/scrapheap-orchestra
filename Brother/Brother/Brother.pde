@@ -1,6 +1,6 @@
 /// 
 /// @mainpage	Brother 
-/// @details	<#details#>
+/// @details	details
 /// @n 
 /// @n 
 /// @n @a	Developed with [embedXcode]( http://embedXcode.weebly.com )
@@ -8,7 +8,7 @@
 /// @author	Neil Mendoza
 /// @author	__MyCompanyName__
 /// @date	27/07/2012 11:34
-/// @version	<#version#>
+/// @version	version
 /// 
 /// @copyright	© Neil Mendoza, 2012
 /// @copyright	CC = BY NC SA
@@ -37,6 +37,7 @@
 #include "ShiftSwitcher.h"
 #include "SimpleStepOsc.h"
 #include "DirStepOsc.h"
+#include "SimpleStepOsc.h"
 #include "FloppyOsc.h"
 
 void setup() {
@@ -52,10 +53,8 @@ void setup() {
    
     
     initRunner();
-   // addSwitcher(midimap(CHANNEL_2), FET2);
-    
-    
-    int id = EEPROM.read(0);
+
+	int id = EEPROM.read(0);
     
     switch (id)
     {
