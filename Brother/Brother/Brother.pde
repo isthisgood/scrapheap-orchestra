@@ -39,6 +39,7 @@
 #include "DirStepOsc.h"
 #include "SimpleStepOsc.h"
 #include "FloppyOsc.h"
+#include "SimpleMotorOsc.h"
 
 void setup() {
 
@@ -55,12 +56,12 @@ void setup() {
     initRunner();
 
 	int id = EEPROM.read(0);
-    
+    id = 0;
     switch (id)
     {
         case 0:
            // addOsc(midimap(CHANNEL_1), FET1);
-            addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addSimpleMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
             addSwitcher(midimap(CHANNEL_2), FET1);
             //addOsc(midimap(CHANNEL_1), FET1);

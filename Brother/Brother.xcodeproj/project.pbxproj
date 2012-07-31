@@ -246,6 +246,7 @@
 		28B6F4FC15C2A63600BB3146 /* Stepper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F4FB15C2A63600BB3146 /* Stepper.cpp */; };
 		28B6F50015C2A63600BB3146 /* Supervisor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F4FF15C2A63600BB3146 /* Supervisor.cpp */; };
 		28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28B6F50315C2A63600BB3146 /* TimedAction.cpp */; };
+		EA3A84F515C85A920096C158 /* SimpleMotorOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA3A84F315C85A920096C158 /* SimpleMotorOsc.cpp */; };
 		EABD5EB015C6E4AB00E1C489 /* DirStepOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EABD5EAE15C6E4AB00E1C489 /* DirStepOsc.cpp */; };
 		EAEE2FD815C700FB00C18E97 /* EEPROM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAEE2FD615C700FA00C18E97 /* EEPROM.cpp */; };
 /* End PBXBuildFile section */
@@ -792,9 +793,11 @@
 		28B6F52415C2A63600BB3146 /* References.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = References.txt; path = About/References.txt; sourceTree = "<group>"; };
 		28B6F52615C2A63600BB3146 /* reset.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = reset.py; path = Utilities/reset.py; sourceTree = "<group>"; };
 		28B6F52715C2A63600BB3146 /* doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = doxyfile; path = Utilities/doxyfile; sourceTree = "<group>"; };
+		EA3A84F315C85A920096C158 /* SimpleMotorOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleMotorOsc.cpp; sourceTree = "<group>"; };
+		EA3A84F415C85A920096C158 /* SimpleMotorOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMotorOsc.h; sourceTree = "<group>"; };
 		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		EABD5EAE15C6E4AB00E1C489 /* DirStepOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirStepOsc.cpp; sourceTree = "<group>"; };
-		EABD5EAF15C6E4AB00E1C489 /* DirStepOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DirStepOsc.h; sourceTree = "<group>"; };
+		EABD5EAF15C6E4AB00E1C489 /* DirStepOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirStepOsc.h; sourceTree = "<group>"; };
 		EAEE2FD615C700FA00C18E97 /* EEPROM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EEPROM.cpp; sourceTree = "<group>"; };
 		EAEE2FD715C700FB00C18E97 /* EEPROM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPROM.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -809,6 +812,8 @@
 				289F1ACD15C692AE00B15E1B /* Osc.h */,
 				289F1AE215C697BA00B15E1B /* SimpleStepOsc.cpp */,
 				289F1AE315C697BB00B15E1B /* SimpleStepOsc.h */,
+				EA3A84F315C85A920096C158 /* SimpleMotorOsc.cpp */,
+				EA3A84F415C85A920096C158 /* SimpleMotorOsc.h */,
 				289F1ADA15C692AE00B15E1B /* StepOsc.cpp */,
 				289F1ADB15C692AE00B15E1B /* StepOsc.h */,
 				EABD5EAE15C6E4AB00E1C489 /* DirStepOsc.cpp */,
@@ -2663,6 +2668,7 @@
 				28B6F50415C2A63600BB3146 /* TimedAction.cpp in Sources */,
 				EABD5EB015C6E4AB00E1C489 /* DirStepOsc.cpp in Sources */,
 				EAEE2FD815C700FB00C18E97 /* EEPROM.cpp in Sources */,
+				EA3A84F515C85A920096C158 /* SimpleMotorOsc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
