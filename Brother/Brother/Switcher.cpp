@@ -14,6 +14,8 @@ void addSwitcher(MidiMap midi, int pin) {
 // initializes an oscillator on a pin.
 void initSwitcher(Switcher *o, int pin) {
   o->pin = pin;
+    pinMode(o->pin, OUTPUT);
+    digitalWrite(o->pin, 0);
   o->value = 0;
 }
 

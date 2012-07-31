@@ -52,8 +52,10 @@ void setup() {
    
     
     initRunner();
-	
-	int id = EEPROM.read(0);
+   // addSwitcher(midimap(CHANNEL_2), FET2);
+    
+    
+    int id = EEPROM.read(0);
     
     switch (id)
     {
@@ -61,11 +63,12 @@ void setup() {
            // addOsc(midimap(CHANNEL_1), FET1);
             addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
+            addSwitcher(midimap(CHANNEL_2), FET1);
             //addOsc(midimap(CHANNEL_1), FET1);
             break;
 		case 1:
 			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
-            addFloppyOsc(midimap(CHANNEL_3), ANA1, ANA2);
+            addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
 			break;
         default:
