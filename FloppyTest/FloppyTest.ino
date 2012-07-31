@@ -3,16 +3,16 @@ int steps = 0;
 int stepDir = LOW;
 int currentState = LOW;
 
-const int DIR_PIN = A7;
-const int STEP_PIN = A6;
+const int DIR_PIN = 6;
+const int STEP_PIN = 9;
 
 void setup()
 {
   pinMode(DIR_PIN, OUTPUT);
   pinMode(STEP_PIN, OUTPUT);
   
-  digitalWrite(DIR_PIN, stepDir);
-  digitalWrite(STEP_PIN, currentState);
+  digitalWrite(DIR_PIN, LOW);
+  digitalWrite(STEP_PIN, LOW);
 }
 
 void loop()
