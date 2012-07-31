@@ -1,3 +1,4 @@
+#pragma once
 
 #include "MidiMap.h"
 

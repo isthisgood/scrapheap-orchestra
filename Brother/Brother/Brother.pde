@@ -50,12 +50,13 @@ void setup() {
     
     //addSimpleStepperOsc(midimap(CHANNEL_1), );
     
-   
+	
     
     initRunner();
+	addSimpleStepOsc(midimap(1), DIR1, STEP1, EN1, LIMIT1);
 //	EEPROM.write(0, 4);
 	int id = EEPROM.read(0);
-    
+   /* 
     switch (id)
     {
         case 0:
@@ -76,6 +77,7 @@ void setup() {
             addOsc(midimap(CHANNEL_4), FET4);
             break;
     }
+	*/
 }
 
 void loop() {
