@@ -4,6 +4,7 @@
 #include "OscUtils.h"
 #include "Runner.h"
 #include "ShiftRegister.h"
+#include "constants.h"
 
 void addSimpleMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int reversePin)
 {
@@ -43,10 +44,10 @@ void playSimpleMotorOsc(SimpleMotorOsc *o, int note, int vel)
     float u = 1000000.f/f;
     o->uPeriod = u;
     o->halfPeriod = o->uPeriod/2;
-    o->out = 0;
-    o->dir = 0;
+   // o->out = 0;
+   // o->dir = 0;
+	//digitalWrite(o->stepPin, o->out);
 	digitalWrite(o->dirPin, o->dir);
-    o->checked = 0;
     o->disabledTime = 0;
 }
 
@@ -62,7 +63,7 @@ void stopSimpleMotorOsc(SimpleMotorOsc *o)
     o->disabledTime = 0;
 }
 
-//void checkLimits(SimpleMotorOsc *o);
+void check_Limits(SimpleMotorOsc *o);
 
 void tickSimpleMotorOsc(SimpleMotorOsc *o)
 {
@@ -84,22 +85,22 @@ void tickSimpleMotorOsc(SimpleMotorOsc *o)
 			
         }
         
-   /*     unsigned long checkPos = us % LIMIT_CHECK;
+        unsigned long checkPos = us % LIMIT_CHECK;
         if (checkPos > HALF_LIMIT_CHECK != !o->checked)
         {
             o->checked ^= 1;
-            if (o->checked) checkLimits(o);
+            if (o->checked) check_Limits(o);
         }
-	*/
     }
 }
-/*
-void checkLimits(SimpleMotorOsc *o)
+
+void check_Limits(SimpleMotorOsc *o)
 {
     if (us > o->disabledTime && digitalRead(o->reversePin) == LOW)
     {
-        o->dir ^= 1;
+        o->out ^= 1;
+		o->dir ^= 1;
         o->disabledTime = us + DISABLED_PERIOD;
-        digitalWrite(o->dirPin, o->dir);
+//digitalWrite(o->dirPin, o->dir);
     }
-}*/
+}

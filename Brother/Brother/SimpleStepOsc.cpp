@@ -4,6 +4,7 @@
 #include "OscUtils.h"
 #include "Runner.h"
 #include "ShiftRegister.h"
+#include "constants.h"
 
 void addSimpleStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int reversePin)
 {

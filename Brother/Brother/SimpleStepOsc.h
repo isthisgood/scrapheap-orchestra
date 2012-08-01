@@ -7,10 +7,7 @@ void addSimpleStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin,
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
 
-// 20000 micros = 1/50th second
-const unsigned long LIMIT_CHECK = 20000;
-const unsigned long HALF_LIMIT_CHECK = LIMIT_CHECK / 2;
-const unsigned long DISABLED_PERIOD = 1e6;
+
 
 struct SimpleStepOsc
 {

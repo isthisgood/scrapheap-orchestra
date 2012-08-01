@@ -81,3 +81,9 @@
 #define LIMIT2 3
 #define ANA1 A7
 #define ANA2 A6
+
+
+// 20000 micros = 1/50th second
+const unsigned long LIMIT_CHECK = 20000;
+const unsigned long HALF_LIMIT_CHECK = LIMIT_CHECK / 2;
+const unsigned long DISABLED_PERIOD = 1e6;
