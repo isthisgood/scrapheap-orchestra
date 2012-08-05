@@ -41,38 +41,21 @@
 #include "FloppyOsc.h"
 #include "SimpleMotorOsc.h"
 
-void setup() {
-
-    
-    // addStepOsc(midimap(CHANNEL_1), 8, 9, 10, 11);
-    //addVelOsc(midimap(CHANNEL_1), 12);
-    //addSwitcher(midimap(CHANNEL_2), 13);
-    //addOsc(midimap(CHANNEL_4), 4);
-    
-    //addSimpleStepperOsc(midimap(CHANNEL_1), );
-    
-   
-    
+void setup()
+{
     initRunner();
-
+    
 	int id = EEPROM.read(0);
-
+    
     switch (id)
     {
-        case 3:
-           // addOsc(midimap(CHANNEL_1), FET1);
-			addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-			addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
-            addSimpleMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3, ANA1);
-
-
-			addOsc(midimap(CHANNEL_8), FET1);
-			addOsc(midimap(CHANNEL_8), FET2);
-			addOsc(midimap(CHANNEL_8), FET3);
-			addOsc(midimap(CHANNEL_8), FET4);
-            //addOsc(midimap(CHANNEL_1), FET1);
+        case 0:
+            addSimpleStepOsc(midimap(CHANNEL_7), DIR1, STEP1, EN1, LIMIT1);
+            //addSimpleStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2, LIMIT2);
+            //addSwitcher(midimap(CHANNEL_8), FET4);
             break;
-		case 1:
+            
+        case 1:
 			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
             addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
@@ -83,7 +66,22 @@ void setup() {
             addSimpleStepOsc(midimap(CHANNEL_5), DIR1, STEP1, EN1, LIMIT1);
             addSimpleStepOsc(midimap(CHANNEL_6), DIR2, STEP2, EN2, LIMIT2);
             break;
-		case 4:
+            
+        case 3:
+            // addOsc(midimap(CHANNEL_1), FET1);
+			addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+			addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
+            addSimpleMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3, ANA1);
+            
+            
+			addOsc(midimap(CHANNEL_8), FET1);
+			addOsc(midimap(CHANNEL_8), FET2);
+			addOsc(midimap(CHANNEL_8), FET3);
+			addOsc(midimap(CHANNEL_8), FET4);
+            //addOsc(midimap(CHANNEL_1), FET1);
+            break;
+            
+        case 4:
 			addSimpleMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
 			break;
 			
@@ -96,6 +94,7 @@ void setup() {
     }
 }
 
-void loop() {
+void loop()
+{
     runRunner();
 }
