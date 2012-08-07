@@ -59,7 +59,7 @@ void setup()
 			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
             addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
-            addRandOsc(midimap(CHANNEL_5), FET4);
+           	 addRandOsc(midimap(CHANNEL_5), FET4);
 			break;
             
         case 2:
@@ -82,8 +82,9 @@ void setup()
             break;
             
         case 4:
-			addSimpleMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-			break;
+			//addSimpleMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+			addRandOsc(midimap(CHANNEL_2), FET4);		
+            break;
 			
         default:
             addOsc(midimap(CHANNEL_1), FET1);
