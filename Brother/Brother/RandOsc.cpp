@@ -49,25 +49,23 @@ void stopRandOsc(RandOsc *o) {
 }
 
 
-void ccRandOsc(RandOsc *o, int num, int val) {
-  float r = val;
-  val *= o->uPeriod;
- 
-  val /= 127.f;
-  val -= o->uPeriod/2;
-  o->randValue = val;
- 
+void ccRandOsc(RandOsc *o, int num, int val)
+{
+    if (num == 22)
+    {
+        o->randValue = val;
+    }
 }
 
 
 void tickRandOsc(RandOsc *o) {
   if(o->uPeriod>0) {
     unsigned long pos = us % o->uPeriod;
-    pos += random(o->randValue);
+    //pos += random(o->randValue);
     if(pos>o->halfPeriod != !o->out) {
       o->out ^= 1;
      
-      digitalWrite(o->pin, o->out);
+      if (random(127) > o->randValue) digitalWrite(o->pin, o->out);
       //applyRandPeriod(o);
     }
   }
