@@ -51,20 +51,23 @@ void setup()
     {
         case 0:
             addSimpleStepOsc(midimap(CHANNEL_7), DIR1, STEP1, EN1, LIMIT1);
+            addSimpleStepOsc(midimap(CHANNEL_9), DIR2, STEP2, EN2, LIMIT2);
+            addSimpleStepOsc(midimap(CHANNEL_10), DIR4, STEP4, EN4, ANA2);
             //addSimpleStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2, LIMIT2);
-            //addSwitcher(midimap(CHANNEL_8), FET4);
+            addSwitcher(midimap(CHANNEL_8), FET4);
             break;
             
         case 1:
 			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
             addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
-           	 addRandOsc(midimap(CHANNEL_5), FET4);
+            addRandOsc(midimap(CHANNEL_5), FET4);
 			break;
             
         case 2:
             addSimpleStepOsc(midimap(CHANNEL_5), DIR1, STEP1, EN1, LIMIT1);
-            addSimpleStepOsc(midimap(CHANNEL_6), DIR2, STEP2, EN2, LIMIT2);
+            //addSimpleStepOsc(midimap(CHANNEL_6), DIR2, STEP2, EN2, LIMIT2);
+            //addSwitcher(midimap(CHANNEL_8), FET4);
             break;
             
         case 3:
@@ -83,6 +86,7 @@ void setup()
             
         case 4:
             addRandOsc(midimap(CHANNEL_2), FET4);
+            addFloppyOsc(midimap(CHANNEL_1), FET2, FET3);
 			break;
 			
         default:

@@ -8,12 +8,13 @@ void addRandOsc(MidiMap midi, int pin);
 // You don't need to touch anything below this line
 
 struct RandOsc {
-  unsigned int uPeriod;
-  unsigned int halfPeriod;
-  int out;
-  int pin;
-  int randValue;
-  unsigned int randPeriod;
+    unsigned int uPeriod;
+    unsigned int halfPeriod;
+    int out;
+    int pin;
+    int randValue;
+    int scaledRandValue;
+    unsigned int randPeriod;
 };
 
 
