@@ -3,8 +3,8 @@ int steps = 0;
 int stepDir = LOW;
 int currentState = LOW;
 
-const int DIR_PIN = 6;
-const int STEP_PIN = 9;
+const int DIR_PIN = 9;
+const int STEP_PIN = 10;
 
 void setup()
 {
@@ -18,7 +18,7 @@ void setup()
 void loop()
 {
   doStep();
-  delay(50);
+  delay(10);
 }
 
 void doStep()
