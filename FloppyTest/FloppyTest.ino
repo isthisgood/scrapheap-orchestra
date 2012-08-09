@@ -18,7 +18,7 @@ void setup()
 void loop()
 {
   doStep();
-  delay(10);
+  delay(50);
 }
 
 void doStep()

@@ -54,7 +54,7 @@ void setup()
             addSimpleStepOsc(midimap(CHANNEL_9), DIR2, STEP2, EN2, LIMIT2);
             addSimpleStepOsc(midimap(CHANNEL_10), DIR4, STEP4, EN4, ANA2);
             //addSimpleStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2, LIMIT2);
-            addSwitcher(midimap(CHANNEL_8), FET4);
+            addSwitcher(midimap(CHANNEL_10), FET4);
             break;
             
         case 1:
@@ -66,7 +66,7 @@ void setup()
             
         case 2:
             addSimpleStepOsc(midimap(CHANNEL_5), DIR1, STEP1, EN1, LIMIT1);
-            //addSimpleStepOsc(midimap(CHANNEL_6), DIR2, STEP2, EN2, LIMIT2);
+            addSimpleStepOsc(midimap(CHANNEL_11), DIR2, STEP2, EN2, LIMIT2);
             //addSwitcher(midimap(CHANNEL_8), FET4);
             break;
             
