@@ -7,7 +7,7 @@
 
 #include "MidiMap.h"
 
-#define MAX_NUM_OSCS 8
+#define MAX_NUM_OSCS 16
 #ifndef NULL
 #    define NULL (0)
 #endif

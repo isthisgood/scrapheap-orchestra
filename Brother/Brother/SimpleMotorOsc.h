@@ -2,7 +2,7 @@
 
 #include "MidiMap.h"
 
-void addSimpleMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int reversePin);
+void addSimpleMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin);
 
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
@@ -19,7 +19,6 @@ struct SimpleMotorOsc
     
     int dirPin;
     int stepPin;
-    int reversePin;
     int enableShiftPin;
 	
     int dir;
@@ -30,7 +29,7 @@ struct SimpleMotorOsc
 
 
 // initializes an oscillator on a pin.
-void initSimpleMotorOsc(SimpleMotorOsc *o, int dirPin, int stepPin, int enableShiftPin, int reversePin);
+void initSimpleMotorOsc(SimpleMotorOsc *o, int dirPin, int stepPin, int enableShiftPin);
 
 // this starts a midi note playing
 void playSimpleMotorOsc(SimpleMotorOsc *o, int note, int vel);

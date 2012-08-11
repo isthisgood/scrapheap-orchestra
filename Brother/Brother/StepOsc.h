@@ -1,32 +1,31 @@
 
 #include "MidiMap.h"
 
-void addStepOsc(MidiMap midi, int pinA, int pinB, int pinC, int pinD);
+void addStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin);
 
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
 
 
 
-
-struct StepOsc {
-  unsigned int uPeriod;
-  unsigned int halfPeriod;
-  
-  
-  int pinA;
-  int pinB;
-  int pinC;
-  int pinD;
-  
-  int pos;
-  int out;
-  
+struct StepOsc
+{
+    unsigned int uPeriod;
+    unsigned int halfPeriod;
+    
+    int dirPin;
+    int stepPin;
+    int enableShiftPin;
+	
+    int dir;
+    int out;
+    int checked;
+    unsigned long disabledTime;
 };
 
 
 // initializes an oscillator on a pin.
-void initStepOsc(StepOsc *o, int pinA, int pinB, int pinC, int pinD);
+void initStepOsc(StepOsc *o, int dirPin, int stepPin, int enableShiftPin);
 
 // this starts a midi note playing
 void playStepOsc(StepOsc *o, int note, int vel);

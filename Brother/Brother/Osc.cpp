@@ -48,15 +48,15 @@ void stopOsc(Osc *o) {
 }
 
 void ccOsc(Osc *o, int ctrlId, int val) {
-    //if(ctrlId==-1) {
+    if(ctrlId==22 && o->uPeriod != 0) {
       float f = mtof(o->note);
       float power = val - 63;
-      power /= 63;
+      power /= 63.f;
       f *= pow(2, power);
       float u = 1000000.f/f;
       o->uPeriod = u;
       o->halfPeriod = o->uPeriod/2;
-   //}
+   }
 }
 
 
