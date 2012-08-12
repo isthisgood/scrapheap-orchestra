@@ -35,8 +35,16 @@ void ccControlStepOsc(ControlStepOsc *o, int num, int val)
 {
     if (num == 23)
     {
-        o->dir = ~o->dir;
-        digitalWrite(o->dirPin, o->dir);
+		if(val > 63 && o->dir == 0)
+        {
+			o->dir = 1;
+            digitalWrite(o->dirPin, o->dir);
+		}
+        else if (val <= 63 && o->dir == 1)
+        {
+			o->dir = 0;
+            digitalWrite(o->dirPin, o->dir);
+		}
     }
 }
 

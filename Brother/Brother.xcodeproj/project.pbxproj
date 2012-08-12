@@ -794,6 +794,8 @@
 		28B6F52715C2A63600BB3146 /* doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = doxyfile; path = Utilities/doxyfile; sourceTree = "<group>"; };
 		28B7BE0415D7F3D300DEFF19 /* Flapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Flapper.cpp; sourceTree = "<group>"; };
 		28B7BE0515D7F3D300DEFF19 /* Flapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flapper.h; sourceTree = "<group>"; };
+		28B7BE0715D847E200DEFF19 /* DrawerOsc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DrawerOsc.cpp; sourceTree = "<group>"; };
+		28B7BE0815D847E200DEFF19 /* DrawerOsc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawerOsc.h; sourceTree = "<group>"; };
 		EA9E0C7115D520B9008AFB90 /* LimitMotorOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LimitMotorOsc.cpp; sourceTree = "<group>"; };
 		EA9E0C7215D520B9008AFB90 /* LimitMotorOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitMotorOsc.h; sourceTree = "<group>"; };
 		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -805,6 +807,8 @@
 		289F1AE115C6942A00B15E1B /* Oscillator */ = {
 			isa = PBXGroup;
 			children = (
+				28B7BE0715D847E200DEFF19 /* DrawerOsc.cpp */,
+				28B7BE0815D847E200DEFF19 /* DrawerOsc.h */,
 				289F1AE415C6CDA200B15E1B /* FloppyOsc.cpp */,
 				289F1AE515C6CDA200B15E1B /* FloppyOsc.h */,
 				289F1ACC15C692AE00B15E1B /* Osc.cpp */,

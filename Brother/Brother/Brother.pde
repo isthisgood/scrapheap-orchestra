@@ -40,6 +40,7 @@
 #include "ControlMotorOsc.h"
 #include "ControlStepOsc.h"
 #include "Flapper.h"
+#include "DrawerOsc.h"
 
 void setup()
 {
@@ -100,6 +101,12 @@ void setup()
 			addShiftSwitcher(midimap(CHANNEL_2), LED8);
 			break;
             
+        case 32:
+            // digital sender
+            //addFlapper(midimap(CHANNEL_7), FET4, FET2);
+            addSwitcher(midimap(CHANNEL_14), FET3);
+            break;
+            
         case 56:
             // design jet
 			// formfeed channel 1
@@ -111,7 +118,7 @@ void setup()
 		case 58:
 			//addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
 			//addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			addLimitStepOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1);
+			addLimitStepOsc(midimap(CHANNEL_10), DIR1, STEP1, EN1, LIMIT1);
             addFlapper(midimap(CHANNEL_1), FET3, FET2);
             
             addControlStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2);
@@ -120,6 +127,13 @@ void setup()
             
         case 59:
 			addSwitcher(midimap(CHANNEL_10), FET1);
+            break;
+            
+        case 60:
+            addControlStepOsc(midimap(CHANNEL_12), DIR1, STEP1, EN1);
+            addDrawerOsc(midimap(CHANNEL_13), DIR2, STEP2, EN2, LIMIT2);
+            addControlStepOsc(midimap(CHANNEL_14), DIR3, STEP3, EN3);
+            addControlStepOsc(midimap(CHANNEL_15), DIR4, STEP4, EN4);
             break;
         
         case 62:
