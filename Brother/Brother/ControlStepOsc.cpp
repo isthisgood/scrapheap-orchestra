@@ -1,28 +1,25 @@
 
-#include "StepOsc.h"
+#include "ControlStepOsc.h"
 #include <Arduino.h>
 #include "OscUtils.h"
 #include "Runner.h"
 #include "ShiftRegister.h"
 #include "constants.h"
 
-void addStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin)
+void addControlStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin)
 {
-	StepOsc *o = new StepOsc();
-	initStepOsc(o, dirPin, stepPin, enableShiftPin);
-	addObject(midi, o, (tickFn)tickStepOsc, (noteOnFn)playStepOsc, (noteOffFn)stopStepOsc, NULL);
+	ControlStepOsc *o = new ControlStepOsc();
+	initControlStepOsc(o, dirPin, stepPin, enableShiftPin);
+	addObject(midi, o, (tickFn)tickControlStepOsc, (noteOnFn)playControlStepOsc, (noteOffFn)stopControlStepOsc, (ccFn)ccControlStepOsc);
 }
 
-
-void initStepOsc(StepOsc *o, int dirPin, int stepPin, int enableShiftPin)
+void initControlStepOsc(ControlStepOsc *o, int dirPin, int stepPin, int enableShiftPin)
 {
     pinMode(dirPin, OUTPUT);
     pinMode(stepPin, OUTPUT);
     
-	
     o->dirPin = dirPin;
     o->stepPin = stepPin;
-   
     o->enableShiftPin = enableShiftPin;
 	
     o->uPeriod = 0;
@@ -30,12 +27,20 @@ void initStepOsc(StepOsc *o, int dirPin, int stepPin, int enableShiftPin)
     o->dir = 0;
     o->out = 0;
     
-    
     digitalWrite(stepPin, o->out);
     digitalWrite(dirPin, o->dir);
 }
 
-void playStepOsc(StepOsc *o, int note, int vel)
+void ccControlStepOsc(ControlStepOsc *o, int num, int val)
+{
+    if (num == 23)
+    {
+        o->dir = ~o->dir;
+        digitalWrite(o->dirPin, o->dir);
+    }
+}
+
+void playControlStepOsc(ControlStepOsc *o, int note, int vel)
 {   
     shiftPin(o->enableShiftPin, 1);
     
@@ -46,7 +51,7 @@ void playStepOsc(StepOsc *o, int note, int vel)
     o->out = 0;
 }
 
-void stopStepOsc(StepOsc *o)
+void stopControlStepOsc(ControlStepOsc *o)
 {
     shiftPin(o->enableShiftPin, 0);
     
@@ -55,8 +60,7 @@ void stopStepOsc(StepOsc *o)
     o->out = 0;
 }
 
-
-void tickStepOsc(StepOsc *o)
+void tickControlStepOsc(ControlStepOsc *o)
 {
     if(o->uPeriod>0)
     {

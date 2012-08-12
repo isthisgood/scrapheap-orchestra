@@ -12,13 +12,14 @@
  *
  *  Description: 
  *				 
- *  DirMotorOsc.h, created by Marek Bereza on 10/08/2012.
+ *  LimitMotorOsc.h, created by Marek Bereza on 10/08/2012.
  */
 // this is for print head motors that have limit switches
+// it drives the motors from the stepper drivers
 #pragma once
 #include "MidiMap.h"
 
-void addDirMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin);
+void addLimitMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin);
 
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
@@ -28,7 +29,7 @@ void addDirMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, i
 //const unsigned long HALF_LIMIT_CHECK = LIMIT_CHECK / 2;
 //const unsigned long DISABLED_PERIOD = 1e6;
 
-struct DirMotorOsc
+struct LimitMotorOsc
 {
     unsigned int uPeriod;
     unsigned int halfPeriod;
@@ -43,23 +44,24 @@ struct DirMotorOsc
     int out;
     int checked;
     unsigned long disabledTime;
+    bool analog;
 };
 
 
 // initializes an oscillator on a pin.
-void initDirMotorOsc(DirMotorOsc *o, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin);
+void initLimitMotorOsc(LimitMotorOsc *o, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin);
 
 // this starts a midi note playing
-void playDirMotorOsc(DirMotorOsc *o, int note, int vel);
+void playLimitMotorOsc(LimitMotorOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
-void stopDirMotorOsc(DirMotorOsc *o);
+void stopLimitMotorOsc(LimitMotorOsc *o);
 
 
 
 
 // call this on every osc you want to play in your sound loop
-void tickDirMotorOsc(DirMotorOsc *o);
+void tickLimitMotorOsc(LimitMotorOsc *o);
 
 
 

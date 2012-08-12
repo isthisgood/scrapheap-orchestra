@@ -22,7 +22,6 @@
 
 // Include application, user and local libraries
 #include "LocalLibrary.h"
-#include "StepOsc.h"
 #include "OscUtils.h"
 #include "Osc.h"
 #include "Runner.h"
@@ -35,12 +34,11 @@
 #include "ShiftRegister.h"
 #include "constants.h"
 #include "ShiftSwitcher.h"
-#include "SimpleStepOsc.h"
-#include "DirStepOsc.h"
-#include "SimpleStepOsc.h"
 #include "FloppyOsc.h"
-#include "SimpleMotorOsc.h"
-#include "DirMotorOsc.h"
+#include "LimitMotorOsc.h"
+#include "LimitStepOsc.h"
+#include "ControlMotorOsc.h"
+#include "ControlStepOsc.h"
 
 void setup()
 {
@@ -51,56 +49,43 @@ void setup()
     switch (id)
     {
         case 0:
-            addSimpleStepOsc(midimap(CHANNEL_7), DIR1, STEP1, EN1, LIMIT1);
-            addSimpleStepOsc(midimap(CHANNEL_12), DIR2, STEP2, EN2, LIMIT2);
-            addSimpleStepOsc(midimap(CHANNEL_10), DIR4, STEP4, EN4, ANA2);
-            //addSimpleStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2, LIMIT2);
+            addLimitStepOsc(midimap(CHANNEL_7), DIR1, STEP1, EN1, LIMIT1);
+            addLimitStepOsc(midimap(CHANNEL_12), DIR2, STEP2, EN2, LIMIT2);
+            addLimitStepOsc(midimap(CHANNEL_10), DIR4, STEP4, EN4, ANA2);
             addSwitcher(midimap(CHANNEL_10), FET4);
             break;
             
         case 1:
-			//addDirStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1);
-            addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
+			addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
             addOsc(midimap(CHANNEL_4), FET1);
             addRandOsc(midimap(CHANNEL_5), FET4);
 			break;
             
         case 2:
-            addSimpleStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1, LIMIT1);
-            addSimpleStepOsc(midimap(CHANNEL_11), DIR2, STEP2, EN2, LIMIT2);
-            //addSwitcher(midimap(CHANNEL_8), FET4);
-            addSimpleStepOsc(midimap(CHANNEL_13), DIR3, STEP3, EN3, ANA1);
-            
+            addLimitStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1, LIMIT1);
+            addLimitStepOsc(midimap(CHANNEL_11), DIR2, STEP2, EN2, LIMIT2);
+            addLimitStepOsc(midimap(CHANNEL_13), DIR3, STEP3, EN3, ANA1);
             break;
-		case 58:
-			addStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
-			addStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			break;
+		
         case 3:
-            // addOsc(midimap(CHANNEL_1), FET1);
-			addSimpleStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-			addSimpleStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
-            addSimpleMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3);
-            
+            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+			addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
+            //addLimitMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3, ANA1);
             
 			addOsc(midimap(CHANNEL_8), FET1);
 			addOsc(midimap(CHANNEL_8), FET2);
 			addOsc(midimap(CHANNEL_8), FET3);
 			addOsc(midimap(CHANNEL_8), FET4);
-            //addOsc(midimap(CHANNEL_1), FET1);
             break;
-		case 59:
-			addDirMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
-			addSimpleMotorOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2); 
-			break;
-        case 4:
-            //addRandOsc(midimap(CHANNEL_2), FET4);
+            
+		case 4:
             addFloppyOsc(midimap(CHANNEL_1), FET3, FET4);
 			break;
-		case 5:
+            
+        case 5:
 			addOsc(midimap(CHANNEL_1), FET1);
-			addStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			addDirMotorOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1, FET3);
+			addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
+			addLimitMotorOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1, FET3);
 			
 			addShiftSwitcher(midimap(CHANNEL_1), LED1);
 			addShiftSwitcher(midimap(CHANNEL_1), LED2);
@@ -111,15 +96,24 @@ void setup()
 			addShiftSwitcher(midimap(CHANNEL_2), LED6);
 			addShiftSwitcher(midimap(CHANNEL_2), LED7);
 			addShiftSwitcher(midimap(CHANNEL_2), LED8);
-			
-			
-											  
 			break;
-		case 62:
+            
+		case 58:
+			addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
+			addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
+			break;
+            
+        case 59:
+			addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
+			addLimitMotorOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2, FET2); 
+			break;
+        
+        case 62:
 			addOsc(midimap(CHANNEL_14), FET1);
-			addStepOsc(midimap(CHANNEL_15), DIR1, STEP1, EN1);
-			addSimpleMotorOsc(midimap(CHANNEL_16), DIR2, STEP2, EN2);
+			addControlStepOsc(midimap(CHANNEL_15), DIR1, STEP1, EN1);
+			addLimitMotorOsc(midimap(CHANNEL_16), DIR2, STEP2, EN2, LIMIT2, FET2);
 			break;
+        
         default:
             addOsc(midimap(CHANNEL_1), FET1);
             addOsc(midimap(CHANNEL_2), FET2);

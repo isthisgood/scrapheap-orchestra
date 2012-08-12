@@ -1,19 +1,19 @@
 
-#include "SimpleStepOsc.h"
+#include "LimitStepOsc.h"
 #include <Arduino.h>
 #include "OscUtils.h"
 #include "Runner.h"
 #include "ShiftRegister.h"
 #include "constants.h"
 
-void addSimpleStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int reversePin)
+void addLimitStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int reversePin)
 {
-  SimpleStepOsc *o = new SimpleStepOsc();
-  initSimpleStepOsc(o, dirPin, stepPin, enableShiftPin, reversePin);
-  addObject(midi, o, (tickFn)tickSimpleStepOsc, (noteOnFn)playSimpleStepOsc, (noteOffFn)stopSimpleStepOsc, NULL);
+  LimitStepOsc *o = new LimitStepOsc();
+  initLimitStepOsc(o, dirPin, stepPin, enableShiftPin, reversePin);
+  addObject(midi, o, (tickFn)tickLimitStepOsc, (noteOnFn)playLimitStepOsc, (noteOffFn)stopLimitStepOsc, NULL);
 }
 
-void initSimpleStepOsc(SimpleStepOsc *o, int dirPin, int stepPin, int enableShiftPin, int reversePin)
+void initLimitStepOsc(LimitStepOsc *o, int dirPin, int stepPin, int enableShiftPin, int reversePin)
 {
     pinMode(dirPin, OUTPUT);
     pinMode(stepPin, OUTPUT);
@@ -32,11 +32,13 @@ void initSimpleStepOsc(SimpleStepOsc *o, int dirPin, int stepPin, int enableShif
     o->checked = 0;
     o->disabledTime = 0;
     
+    o->analog = reversePin == ANA1 || reversePin == ANA2;
+    
     digitalWrite(stepPin, o->out);
     digitalWrite(dirPin, o->dir);
 }
 
-void playSimpleStepOsc(SimpleStepOsc *o, int note, int vel)
+void playLimitStepOsc(LimitStepOsc *o, int note, int vel)
 {   
     shiftPin(o->enableShiftPin, 1);
     
@@ -50,7 +52,7 @@ void playSimpleStepOsc(SimpleStepOsc *o, int note, int vel)
     o->disabledTime = 0;
 }
 
-void stopSimpleStepOsc(SimpleStepOsc *o)
+void stopLimitStepOsc(LimitStepOsc *o)
 {
     shiftPin(o->enableShiftPin, 0);
     
@@ -62,9 +64,9 @@ void stopSimpleStepOsc(SimpleStepOsc *o)
     o->disabledTime = 0;
 }
 
-void checkLimits(SimpleStepOsc *o);
+void checkLimits(LimitStepOsc *o);
 
-void tickSimpleStepOsc(SimpleStepOsc *o)
+void tickLimitStepOsc(LimitStepOsc *o)
 {
     if(o->uPeriod>0)
     {
@@ -87,9 +89,9 @@ void tickSimpleStepOsc(SimpleStepOsc *o)
     }
 }
 
-void checkLimits(SimpleStepOsc *o)
+void checkLimits(LimitStepOsc *o)
 {
-    if (us > o->disabledTime && digitalRead(o->reversePin) == LOW)
+    if (us > o->disabledTime && ((!o->analog && digitalRead(o->reversePin) == LOW) || (o->analog && analogRead(o->reversePin) == 0)))
     {
         o->dir ^= 1;
         o->disabledTime = us + DISABLED_PERIOD;

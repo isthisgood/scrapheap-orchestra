@@ -1,14 +1,14 @@
 
 #include "MidiMap.h"
 
-void addStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin);
+void addControlStepOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin);
 
 /////////////////////////////////////////////////////////////////////////
 // You don't need to touch anything below this line
 
 
 
-struct StepOsc
+struct ControlStepOsc
 {
     unsigned int uPeriod;
     unsigned int halfPeriod;
@@ -19,25 +19,19 @@ struct StepOsc
 	
     int dir;
     int out;
-    int checked;
-    unsigned long disabledTime;
 };
 
 
 // initializes an oscillator on a pin.
-void initStepOsc(StepOsc *o, int dirPin, int stepPin, int enableShiftPin);
+void initControlStepOsc(ControlStepOsc *o, int dirPin, int stepPin, int enableShiftPin);
 
 // this starts a midi note playing
-void playStepOsc(StepOsc *o, int note, int vel);
+void playControlStepOsc(ControlStepOsc *o, int note, int vel);
 
 // this stops the sound outputting from an oscillator
-void stopStepOsc(StepOsc *o);
+void stopControlStepOsc(ControlStepOsc *o);
 
-
-
+void ccControlStepOsc(ControlStepOsc *o, int num, int val);
 
 // call this on every osc you want to play in your sound loop
-void tickStepOsc(StepOsc *o);
-
-
-
+void tickControlStepOsc(ControlStepOsc *o);

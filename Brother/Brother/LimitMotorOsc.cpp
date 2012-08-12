@@ -1,10 +1,10 @@
 /**
- *  DirMotorOsc.cpp
+ *  LimitMotorOsc.cpp
  *
  *  Created by Marek Bereza on 10/08/2012.
  */
 
-#include "DirMotorOsc.h"
+#include "LimitMotorOsc.h"
 
 #include "Arduino.h"
 #include "OscUtils.h"
@@ -12,14 +12,14 @@
 #include "ShiftRegister.h"
 #include "constants.h"
 
-void addDirMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin)
+void addLimitMotorOsc(MidiMap midi, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin)
 {
-	DirMotorOsc *o = new DirMotorOsc();
-	initDirMotorOsc(o, dirPin, stepPin, enableShiftPin, limitPin, relayPin);
-	addObject(midi, o, (tickFn)tickDirMotorOsc, (noteOnFn)playDirMotorOsc, (noteOffFn)stopDirMotorOsc, NULL);
+	LimitMotorOsc *o = new LimitMotorOsc();
+	initLimitMotorOsc(o, dirPin, stepPin, enableShiftPin, limitPin, relayPin);
+	addObject(midi, o, (tickFn)tickLimitMotorOsc, (noteOnFn)playLimitMotorOsc, (noteOffFn)stopLimitMotorOsc, NULL);
 }
 
-void initDirMotorOsc(DirMotorOsc *o, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin)
+void initLimitMotorOsc(LimitMotorOsc *o, int dirPin, int stepPin, int enableShiftPin, int limitPin, int relayPin)
 {
     pinMode(dirPin, OUTPUT);
     pinMode(stepPin, OUTPUT);
@@ -41,12 +41,14 @@ void initDirMotorOsc(DirMotorOsc *o, int dirPin, int stepPin, int enableShiftPin
     o->checked = 0;
     o->disabledTime = 0;
     
+    o->analog = limitPin == ANA1 || limitPin == ANA2;
+    
     digitalWrite(stepPin, o->out);
     digitalWrite(dirPin, o->dir);
 	digitalWrite(relayPin, o->relayDir);
 }
 
-void playDirMotorOsc(DirMotorOsc *o, int note, int vel)
+void playLimitMotorOsc(LimitMotorOsc *o, int note, int vel)
 {   
     shiftPin(o->enableShiftPin, 1);
     
@@ -61,7 +63,7 @@ void playDirMotorOsc(DirMotorOsc *o, int note, int vel)
     o->disabledTime = 0;
 }
 
-void stopDirMotorOsc(DirMotorOsc *o)
+void stopLimitMotorOsc(LimitMotorOsc *o)
 {
     shiftPin(o->enableShiftPin, 0);
     
@@ -73,9 +75,9 @@ void stopDirMotorOsc(DirMotorOsc *o)
     o->disabledTime = 0;
 }
 
-void check__Limits(DirMotorOsc *o);
+void check__Limits(LimitMotorOsc *o);
 
-void tickDirMotorOsc(DirMotorOsc *o)
+void tickLimitMotorOsc(LimitMotorOsc *o)
 {
     if(o->uPeriod>0)
     {
@@ -104,9 +106,9 @@ void tickDirMotorOsc(DirMotorOsc *o)
     }
 }
 
-void check__Limits(DirMotorOsc *o)
+void check__Limits(LimitMotorOsc *o)
 {
-    if (us > o->disabledTime && digitalRead(o->limitPin) == LOW)
+    if (us > o->disabledTime && ((!o->analog && digitalRead(o->limitPin) == LOW) || (o->analog && analogRead(o->limitPin) == 0)))
     {
      //   o->out ^= 1;
 	//	o->dir ^= 1;
