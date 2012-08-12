@@ -792,6 +792,8 @@
 		28B6F52415C2A63600BB3146 /* References.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = References.txt; path = About/References.txt; sourceTree = "<group>"; };
 		28B6F52615C2A63600BB3146 /* reset.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = reset.py; path = Utilities/reset.py; sourceTree = "<group>"; };
 		28B6F52715C2A63600BB3146 /* doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = doxyfile; path = Utilities/doxyfile; sourceTree = "<group>"; };
+		28B7BE0415D7F3D300DEFF19 /* Flapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Flapper.cpp; sourceTree = "<group>"; };
+		28B7BE0515D7F3D300DEFF19 /* Flapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flapper.h; sourceTree = "<group>"; };
 		EA9E0C7115D520B9008AFB90 /* LimitMotorOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LimitMotorOsc.cpp; sourceTree = "<group>"; };
 		EA9E0C7215D520B9008AFB90 /* LimitMotorOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitMotorOsc.h; sourceTree = "<group>"; };
 		EABD5EAD15C6DB0100E1C489 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -823,6 +825,8 @@
 				289F1ADF15C692AE00B15E1B /* VelOsc.h */,
 				289F1ADC15C692AE00B15E1B /* Switcher.cpp */,
 				289F1ADD15C692AE00B15E1B /* Switcher.h */,
+				28B7BE0415D7F3D300DEFF19 /* Flapper.cpp */,
+				28B7BE0515D7F3D300DEFF19 /* Flapper.h */,
 			);
 			name = Oscillator;
 			sourceTree = "<group>";

@@ -98,6 +98,14 @@ void setup()
 			addShiftSwitcher(midimap(CHANNEL_2), LED8);
 			break;
             
+        case 56:
+            // linotype-hell (spig)
+            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addSwitcher(midimap(CHANNEL_1), FET1);
+            addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
+            addSwitcher(midimap(CHANNEL_2), FET3);
+            break;
+            
 		case 58:
 			addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
 			addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
@@ -109,9 +117,14 @@ void setup()
 			break;
         
         case 62:
-			addOsc(midimap(CHANNEL_14), FET1);
-			addControlStepOsc(midimap(CHANNEL_15), DIR1, STEP1, EN1);
-			addLimitMotorOsc(midimap(CHANNEL_16), DIR2, STEP2, EN2, LIMIT2, FET2);
+			addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
+            addShiftSwitcher(midimap(CHANNEL_1), LED1);
+            addShiftSwitcher(midimap(CHANNEL_1), LED2);
+            addShiftSwitcher(midimap(CHANNEL_1), LED3);
+            addShiftSwitcher(midimap(CHANNEL_1), LED4);
+            addOsc(midimap(CHANNEL_14), FET1);
+			//addControlStepOsc(midimap(CHANNEL_15), DIR1, STEP1, EN1);
+			//addLimitMotorOsc(midimap(CHANNEL_16), DIR2, STEP2, EN2, LIMIT2, FET2);
 			break;
         
         default:
