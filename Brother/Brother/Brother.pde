@@ -104,7 +104,7 @@ void setup()
 			// formfeed channel 1
 			addControlMotorOsc(midimap(CHANNEL_1), FET3, FET4);
 			// print head channel 2
-			addControlMotorOsc(midimap(CHANNEL_2), FET1, FET2);	
+			addLimitMotorOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1, FET2);
             break;
             
 		case 58:

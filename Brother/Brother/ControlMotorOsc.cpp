@@ -44,6 +44,7 @@ void playControlMotorOsc(ControlMotorOsc *o, int note, int vel)
     o->halfPeriod = o->uPeriod/2;
 	o->out = 0;
 	digitalWrite(o->motorOutPin, o->out);
+	digitalWrite(o->relayDirPin, o->dir);
 }
 
 void stopControlMotorOsc(ControlMotorOsc *o)
@@ -58,7 +59,11 @@ void ccControlMotorOsc(ControlMotorOsc *o, int num, int val)
 {
     if (num == 23)
     {
-        o->dir = ~o->dir;
+		if(val>63) {
+			o->dir = 1;
+		} else {
+			o->dir = 0;
+		}
         digitalWrite(o->relayDirPin, o->dir);
     }
 }
@@ -71,7 +76,7 @@ void tickControlMotorOsc(ControlMotorOsc *o)
         if(pos > o->halfPeriod != !o->out)
         {
             // tick
-            o->out = ~o->dir;
+            o->out ^= 1;
 			digitalWrite(o->motorOutPin, o->out);
 			
         }
