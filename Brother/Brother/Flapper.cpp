@@ -2,6 +2,7 @@
 #include "Flapper.h"
 #include "Runner.h"
 #include <Arduino.h>
+#include "OscUtils.h"
 
 void addFlapper(MidiMap midi, int flapPin, int relayPin)
 {
@@ -26,7 +27,7 @@ void initFlapper(Flapper *o, int flapPin, int relayPin)
 // this starts a midi note playing
 void playFlapper(Flapper *o, int note, int vel)
 {
-    flapEnd = us + FLAP_TIME;
+    o->flapEnd = us + FLAP_TIME;
     digitalWrite(o->relayPin, LOW);
     digitalWrite(o->flapPin, HIGH);
 }
@@ -35,12 +36,12 @@ void playFlapper(Flapper *o, int note, int vel)
 // this stops the sound outputting from an oscillator
 void stopFlapper(Flapper *o)
 {
-    flapEnd = us + FLAP_TIME;
+    o->flapEnd = us + FLAP_TIME;
     digitalWrite(o->relayPin, HIGH);
     digitalWrite(o->flapPin, HIGH);
 }
 
 void tickFlapper(Flapper *o)
 {
-    if (us > flapEnd) digitalWrite(o->flapPin, LOW);
+    if (us > o->flapEnd) digitalWrite(o->flapPin, LOW);
 }

@@ -1,10 +1,9 @@
 
 #include "MidiMap.h"
 
-const int FLAP_TIME = 250e6;
+const int FLAP_TIME = 5000e6;
 
-void addFlapper(MidiMap midiMap, int pin);
-
+void addFlapper(MidiMap midiMap, int flapPin, int relayPin);
 
 struct Flapper
 {
