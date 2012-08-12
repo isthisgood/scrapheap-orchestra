@@ -39,6 +39,7 @@
 #include "LimitStepOsc.h"
 #include "ControlMotorOsc.h"
 #include "ControlStepOsc.h"
+#include "Flapper.h"
 
 void setup()
 {
@@ -107,9 +108,11 @@ void setup()
             break;
             
 		case 58:
-			addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
-			addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			break;
+			//addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
+			//addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
+			addLimitStepOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1);
+            addFlapper(midimap(CHANNEL_1), FET3, FET2);
+            break;
             
         case 59:
 			addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
