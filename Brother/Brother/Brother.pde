@@ -101,11 +101,11 @@ void setup()
 			break;
             
         case 56:
-            // linotype-hell (spig)
-            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-            addSwitcher(midimap(CHANNEL_1), FET1);
-            addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
-            addSwitcher(midimap(CHANNEL_2), FET3);
+            // design jet
+			// formfeed channel 1
+			addControlMotorOsc(midimap(CHANNEL_1), FET3, FET4);
+			// print head channel 2
+			addLimitMotorOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1, FET2);
             break;
             
 		case 58:
