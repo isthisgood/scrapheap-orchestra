@@ -357,11 +357,12 @@ void setup()
             
         case 48:
         case 49:
+            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addSwitcher(midimap(CHANNEL_1), FET1);
+            break;
         case 50:
         case 51:
-            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
-            addSwitcher(midimap(CHANNEL_1), FET1);
             addSwitcher(midimap(CHANNEL_2), FET2);
             break;
             
