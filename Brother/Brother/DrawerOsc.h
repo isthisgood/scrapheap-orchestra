@@ -22,9 +22,10 @@ struct DrawerOsc
     int dir;
     int out;
     int checked;
-    unsigned long disabledTime;
     
     bool analog;
+    
+    unsigned long counter;
 };
 
 

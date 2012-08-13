@@ -90,3 +90,5 @@ const unsigned long DISABLED_PERIOD = 1e6;
 const unsigned long FLAP_TIME = 100000;
 const unsigned long FLAP_COUNT = 10000;
 const unsigned long HALF_FLAP_COUNT = FLAP_COUNT / 2;
+const int DRAWER_START_DIR = 1;
+const unsigned long DRAWER_STEPS = 1000;
