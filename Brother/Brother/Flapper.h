@@ -7,9 +7,11 @@ struct Flapper
 {
     int flapPin;
     int relayPin;
-    unsigned long flapUpTime;
-    unsigned long flapDownTime;
+    
     int relayOut;
+    int flapOut;
+    
+    long counter;
 };
 
 

@@ -49,104 +49,123 @@ void setup()
 	int id = EEPROM.read(0);
     
     switch (id)
-    {
-        case 0:
-            addLimitStepOsc(midimap(CHANNEL_7), DIR1, STEP1, EN1, LIMIT1);
-            addLimitStepOsc(midimap(CHANNEL_12), DIR2, STEP2, EN2, LIMIT2);
-            addLimitStepOsc(midimap(CHANNEL_10), DIR4, STEP4, EN4, ANA2);
-            addSwitcher(midimap(CHANNEL_10), FET4);
-            break;
-            
+    {   
+        //////////////////////////////////////////
+        // PORT 1
+        // oki 3410 group 1
         case 1:
-			addFloppyOsc(midimap(CHANNEL_3), FET2, FET3);
-            addOsc(midimap(CHANNEL_4), FET1);
-            addRandOsc(midimap(CHANNEL_5), FET4);
-			break;
-            
         case 2:
-            addLimitStepOsc(midimap(CHANNEL_9), DIR1, STEP1, EN1, LIMIT1);
-            addLimitStepOsc(midimap(CHANNEL_11), DIR2, STEP2, EN2, LIMIT2);
-            addControlStepOsc(midimap(CHANNEL_13), DIR4, STEP4, EN4);
-            addSwitcher(midimap(CHANNEL_10), FET1);
-            break;
-		
         case 3:
-            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-			addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
-            //addLimitMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3, ANA1);
-            
-			addOsc(midimap(CHANNEL_8), FET1);
-			addOsc(midimap(CHANNEL_8), FET2);
-			addOsc(midimap(CHANNEL_8), FET3);
-			addOsc(midimap(CHANNEL_8), FET4);
-            break;
-            
-		case 4:
-            addFloppyOsc(midimap(CHANNEL_1), FET3, FET4);
-			break;
-            
+        case 4:
         case 5:
-			addOsc(midimap(CHANNEL_1), FET1);
-			addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			addLimitMotorOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1, FET3);
-			
-			addShiftSwitcher(midimap(CHANNEL_1), LED1);
-			addShiftSwitcher(midimap(CHANNEL_1), LED2);
-			addShiftSwitcher(midimap(CHANNEL_1), LED3);
-			addShiftSwitcher(midimap(CHANNEL_1), LED4);
-			
-			addShiftSwitcher(midimap(CHANNEL_2), LED5);
-			addShiftSwitcher(midimap(CHANNEL_2), LED6);
-			addShiftSwitcher(midimap(CHANNEL_2), LED7);
-			addShiftSwitcher(midimap(CHANNEL_2), LED8);
-			break;
-            
-        case 32:
-            // digital sender
-            //addFlapper(midimap(CHANNEL_7), FET4, FET2);
-            addSwitcher(midimap(CHANNEL_14), FET3);
+        case 6:
+        case 7:
+            // heads
+            addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
+            // pins
+            addOsc(midimap(CHANNEL_2), FET2);
+            // form feed
+            addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
             break;
             
-        case 56:
-            // design jet
-			// formfeed channel 1
-			addControlMotorOsc(midimap(CHANNEL_1), FET3, FET4);
-			// print head channel 2
-			addLimitMotorOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1, FET2);
-            break;
-            
-		case 58:
-			//addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
-			//addControlStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2);
-			addLimitStepOsc(midimap(CHANNEL_10), DIR1, STEP1, EN1, LIMIT1);
-            addFlapper(midimap(CHANNEL_1), FET3, FET2);
-            
-            addControlStepOsc(midimap(CHANNEL_8), DIR2, STEP2, EN2);
-            addControlStepOsc(midimap(CHANNEL_9), DIR3, STEP3, EN3);
-            break;
-            
-        case 59:
-			addSwitcher(midimap(CHANNEL_10), FET1);
-            break;
-            
-        case 60:
-            addControlStepOsc(midimap(CHANNEL_12), DIR1, STEP1, EN1);
-            addDrawerOsc(midimap(CHANNEL_13), DIR2, STEP2, EN2, LIMIT2);
-            addControlStepOsc(midimap(CHANNEL_14), DIR3, STEP3, EN3);
-            addControlStepOsc(midimap(CHANNEL_15), DIR4, STEP4, EN4);
+        //////////////////////////////////////////
+        // PORT 2
+        // oki 3410 group 2
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+            // heads
+            addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
+            // pins
+            addOsc(midimap(CHANNEL_2), FET2);
+            // form feed
+            addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
             break;
         
+        //////////////////////////////////////////
+        // PORT 3
+        // manisman tallys
+        case 13:
+            // heads
+            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addLimitStepOsc(midimap(CHANNEL_1), DIR2, STEP2, EN2, LIMIT2);
+            
+            // form feeds
+            addControlStepOsc(midimap(CHANNEL_2), DIR3, STEP3, EN3);
+            addControlStepOsc(midimap(CHANNEL_2), DIR4, STEP4, EN4);
+            break;
+        
+        // design jets
+        case 14:
+        case 15:
+            // head
+            addLimitMotorOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1, FET1);
+            // form feed
+            addControlMotorOsc(midimap(CHANNEL_4), FET1, FET2);
+            break;
+            
+        // dpx group 1
+        case 16:
+        case 17:
+            // solenoid
+            // head
+            // ff
+            break;
+            
+        // dpx group 2
+        case 18:
+        case 19:
+            // solenoid
+            // head
+            // ff
+            break;
+            
+        // faxes
+        case 20:
+            addFlapper(midimap(CHANNEL_11, mC3), FET1, FET2);
+            addFlapper(midimap(CHANNEL_11, mD3), FET3, FET4);
+            break;
+        
+        case 21:
+            addFlapper(midimap(CHANNEL_11, mE3), FET1, FET2);
+            addFlapper(midimap(CHANNEL_11, mF3), FET3, FET4);
+            break;
+            
+        case 22:
+            addFlapper(midimap(CHANNEL_11, mG3), FET1, FET2);
+            break;
+            
+        //////////////////////////////////////////
+        // PORT 4
+        // digital senders
+        case 23:
+            addFlapper(midimap(CHANNEL_1), FET1, FET2);
+            addFlapper(midimap(CHANNEL_1), FET3, FET4);
+            break;
+        
+        // brother lasers
+        case 24:
+        case 25:
+        case 26:
+            // clicker
+            // flap
+            // y
+            break;
+        
+        // HDDs
+        case 27:
+        case 28:
+        case 29:
+        case 30:
+            //addOsc(midimap(<#int channel#>), <#int pin#>)
+            break;
+            
         case 62:
-			addControlStepOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1);
-            addShiftSwitcher(midimap(CHANNEL_3), LED1);
-            addShiftSwitcher(midimap(CHANNEL_3), LED2);
-            addShiftSwitcher(midimap(CHANNEL_3), LED3);
-            addShiftSwitcher(midimap(CHANNEL_3), LED4);
-            addOsc(midimap(CHANNEL_4), FET1);
-			//addControlStepOsc(midimap(CHANNEL_15), DIR1, STEP1, EN1);
-			//addLimitMotorOsc(midimap(CHANNEL_16), DIR2, STEP2, EN2, LIMIT2, FET2);
-			break;
-        
+            addFlapper(midimap(CHANNEL_1), FET4, FET3);
+            break;
+            
         default:
             addOsc(midimap(CHANNEL_1), FET1);
             addOsc(midimap(CHANNEL_2), FET2);

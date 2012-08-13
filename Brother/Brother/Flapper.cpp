@@ -15,11 +15,13 @@ void addFlapper(MidiMap midi, int flapPin, int relayPin)
 // initializes an oscillator on a pin.
 void initFlapper(Flapper *o, int flapPin, int relayPin)
 {
-    o->flapUpTime = 0;
-    o->flapDownTime = 0;
     o->flapPin = flapPin;
     o->relayPin = relayPin;
-    o->relayOut = 0;
+    
+    o->counter = 0;
+    
+    o->relayOut = LOW;
+    o->flapOut = LOW;
     
     pinMode(o->flapPin, OUTPUT);
     pinMode(o->relayPin, OUTPUT);
@@ -31,15 +33,13 @@ void initFlapper(Flapper *o, int flapPin, int relayPin)
 // this starts a midi note playing
 void playFlapper(Flapper *o, int note, int vel)
 {
-    if (o->flapUpTime == 0)
+    if (o->counter == 0)
     {
-        unsigned long mod = us % 5000000;
-        o->flapUpTime = mod + FLAP_TIME;
-        o->flapDownTime = mod + 2 * FLAP_TIME;
-        
+        o->counter = FLAP_COUNT;
+        o->flapOut = HIGH;
         o->relayOut = LOW;
         digitalWrite(o->relayPin, o->relayOut);
-        digitalWrite(o->flapPin, HIGH);
+        digitalWrite(o->flapPin, o->flapOut);
     }
 }
 
@@ -51,16 +51,15 @@ void stopFlapper(Flapper *o)
 
 void tickFlapper(Flapper *o)
 {
-    if (o->flapUpTime != 0)
+    if (o->flapOut != LOW)
     {
-        unsigned long mod = us % 5000000;
-        if (mod > o->flapDownTime)
+        o->counter--;
+        if (o->counter <= 0)
         {
-            digitalWrite(o->flapPin, LOW);
-            o->flapUpTime = 0;
-            o->flapDownTime = 0;
+            o->flapOut = LOW;
+            digitalWrite(o->flapPin, o->flapOut);
         }
-        else if (mod > o->flapUpTime && o->relayOut == LOW)
+        else if (o->counter < HALF_FLAP_COUNT && o->relayOut == LOW)
         {
             o->relayOut = HIGH;
             digitalWrite(o->relayPin, o->relayOut);

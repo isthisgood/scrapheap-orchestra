@@ -87,4 +87,6 @@
 const unsigned long LIMIT_CHECK = 20000;
 const unsigned long HALF_LIMIT_CHECK = LIMIT_CHECK / 2;
 const unsigned long DISABLED_PERIOD = 1e6;
-const unsigned long FLAP_TIME = 250000;
+const unsigned long FLAP_TIME = 100000;
+const unsigned long FLAP_COUNT = 10000;
+const unsigned long HALF_FLAP_COUNT = FLAP_COUNT / 2;
