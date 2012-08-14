@@ -42,10 +42,29 @@
 #include "Flapper.h"
 #include "DrawerOsc.h"
 
+
+
+void addLeds123() {
+	addShiftSwitcher(midimap(CHANNEL_1), LED1);
+	addShiftSwitcher(midimap(CHANNEL_1), LED2);
+	addShiftSwitcher(midimap(CHANNEL_1), LED3);
+	addShiftSwitcher(midimap(CHANNEL_2), LED4);
+	addShiftSwitcher(midimap(CHANNEL_2), LED5);
+	addShiftSwitcher(midimap(CHANNEL_3), LED6);
+	addShiftSwitcher(midimap(CHANNEL_3), LED7);
+	addShiftSwitcher(midimap(CHANNEL_3), LED8);
+}
+
+void addFets(int midiChannel) {
+	addOsc(midimap(midiChannel), FET1);
+	addOsc(midimap(midiChannel), FET2);
+	addOsc(midimap(midiChannel), FET3);
+	addOsc(midimap(midiChannel), FET4);
+}
 void setup()
 {
     initRunner();
-    
+	//EEPROM.write(0, 33);//, <#uint8_t#>)
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -54,7 +73,7 @@ void setup()
         // PORT 1
         // oki 3410 group 1
         case 1:
-        case 3:
+        case 46:
         case 4:
         case 5:
         case 6:
@@ -65,15 +84,8 @@ void setup()
             addOsc(midimap(CHANNEL_2), FET2);
             // form feed
             addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
-            
-            addShiftSwitcher(midimap(CHANNEL_1), LED1);
-            addShiftSwitcher(midimap(CHANNEL_1), LED2);
-            addShiftSwitcher(midimap(CHANNEL_1), LED3);
-            addShiftSwitcher(midimap(CHANNEL_2), LED4);
-            addShiftSwitcher(midimap(CHANNEL_2), LED5);
-            addShiftSwitcher(midimap(CHANNEL_3), LED6);
-            addShiftSwitcher(midimap(CHANNEL_3), LED7);
-            addShiftSwitcher(midimap(CHANNEL_3), LED8);
+
+            addLeds123();
             break;
 
         case 59://case 2:
@@ -84,14 +96,7 @@ void setup()
             // form feed
             addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
             
-            addShiftSwitcher(midimap(CHANNEL_1), LED1);
-            addShiftSwitcher(midimap(CHANNEL_1), LED2);
-            addShiftSwitcher(midimap(CHANNEL_1), LED3);
-            addShiftSwitcher(midimap(CHANNEL_2), LED4);
-            addShiftSwitcher(midimap(CHANNEL_2), LED5);
-            addShiftSwitcher(midimap(CHANNEL_3), LED6);
-            addShiftSwitcher(midimap(CHANNEL_3), LED7);
-            addShiftSwitcher(midimap(CHANNEL_3), LED8);
+            addLeds123();
             break;
             
         //////////////////////////////////////////
@@ -109,14 +114,7 @@ void setup()
             // form feed
             addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
             
-            addShiftSwitcher(midimap(CHANNEL_1), LED1);
-            addShiftSwitcher(midimap(CHANNEL_1), LED2);
-            addShiftSwitcher(midimap(CHANNEL_1), LED3);
-            addShiftSwitcher(midimap(CHANNEL_2), LED4);
-            addShiftSwitcher(midimap(CHANNEL_2), LED5);
-            addShiftSwitcher(midimap(CHANNEL_3), LED6);
-            addShiftSwitcher(midimap(CHANNEL_3), LED7);
-            addShiftSwitcher(midimap(CHANNEL_3), LED8);
+            addLeds123();
             break;
         
         //////////////////////////////////////////
@@ -178,9 +176,9 @@ void setup()
             addFlapper(midimap(CHANNEL_11, mF3), FET3, FET4);
             break;
             
-        case 22:
-            addFlapper(midimap(CHANNEL_11, mG3), FET1, FET2);
-            break;
+   //     case 22:
+     //       addFlapper(midimap(CHANNEL_11, mG3), FET1, FET2);
+       //     break;
             
         //////////////////////////////////////////
         // PORT 4
@@ -202,26 +200,21 @@ void setup()
             addShiftSwitcher(midimap(CHANNEL_5), LED3);
             break;
         
+			
         // HDDs
         case 27:
-            addOsc(midimap(CHANNEL_2), FET1);
-            addOsc(midimap(CHANNEL_2), FET2);
-            addOsc(midimap(CHANNEL_2), FET3);
-            addOsc(midimap(CHANNEL_2), FET4);
+			addFets(CHANNEL_2);
+			
+            
             break;
             
         case 28:
-            addOsc(midimap(CHANNEL_3), FET1);
-            addOsc(midimap(CHANNEL_3), FET2);
-            addOsc(midimap(CHANNEL_3), FET3);
-            addOsc(midimap(CHANNEL_3), FET4);
+            addFets(CHANNEL_3);
+           
             break;
             
         case 29:
-            addOsc(midimap(CHANNEL_4), FET1);
-            addOsc(midimap(CHANNEL_4), FET2);
-            addOsc(midimap(CHANNEL_4), FET3);
-            addOsc(midimap(CHANNEL_4), FET4);
+            addFets(CHANNEL_4);
             break;
             
         //////////////////////////////////////////
@@ -313,12 +306,13 @@ void setup()
         //////////////////////////////////////////
         // PORT 7
         // i80 group 1
-        case 39:
+       /* case 39:
             //motor
             addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
             // light
             addSwitcher(midimap(CHANNEL_1), FET1);
             break;
+		*/
         // i80 group 2
         case 40:
             // motor
@@ -356,30 +350,34 @@ void setup()
         //////////////////////////////////////////
         // PORT 8
         // modems
-        case 45:
-            addRandOsc(midimap(CHANNEL_7), FET1);
-            addRandOsc(midimap(CHANNEL_7), FET2);
-            addSwitcher(midimap(CHANNEL_7), FET3);
-            addSwitcher(midimap(CHANNEL_7), FET4);
-            break;
-        case 46:
+        case 56:
+			
+
             addRandOsc(midimap(CHANNEL_6), FET1);
-            addRandOsc(midimap(CHANNEL_6), FET2);
-            addSwitcher(midimap(CHANNEL_6), FET3);
-            addSwitcher(midimap(CHANNEL_6), FET4);
+			addRandOsc(midimap(CHANNEL_7), FET2);
+			addSwitcher(midimap(CHANNEL_6), FET3);
+			addSwitcher(midimap(CHANNEL_7), FET4);
+			
+            break;
+        case 39:
+            addRandOsc(midimap(CHANNEL_5), FET1);
+			addRandOsc(midimap(CHANNEL_5), FET2);
+			addSwitcher(midimap(CHANNEL_5), FET3);
+			addSwitcher(midimap(CHANNEL_5), FET4);
             break;
         // hero modems
-        case 47:
-            addShiftSwitcher(midimap(CHANNEL_8, mA1), LED1);
-            addShiftSwitcher(midimap(CHANNEL_8, mB1), LED2);
-            addShiftSwitcher(midimap(CHANNEL_8, mC1), LED3);
-            addShiftSwitcher(midimap(CHANNEL_8, mD1), LED4);
-            addShiftSwitcher(midimap(CHANNEL_8, mE1), LED5);
-            addShiftSwitcher(midimap(CHANNEL_8, mF1), LED6);
-            addShiftSwitcher(midimap(CHANNEL_8, mG1), LED7);
-            addShiftSwitcher(midimap(CHANNEL_8, mA2), LED8);
+        case 22:
+            addShiftSwitcher(midimap(CHANNEL_5, mA1), LED1);
+            addShiftSwitcher(midimap(CHANNEL_5, mB1), LED2);
+            addShiftSwitcher(midimap(CHANNEL_5, mC1), LED3);
+            addShiftSwitcher(midimap(CHANNEL_5, mD1), LED4);
+            addShiftSwitcher(midimap(CHANNEL_5, mE1), LED5);
+            addShiftSwitcher(midimap(CHANNEL_5, mF1), LED6);
+            addShiftSwitcher(midimap(CHANNEL_5, mG1), LED7);
+            addShiftSwitcher(midimap(CHANNEL_5, mA2), LED8);
             break;
             
+		
         case 48:
         case 49:
             addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
@@ -394,7 +392,8 @@ void setup()
             addSwitcher(midimap(CHANNEL_2), FET1);
             addSwitcher(midimap(CHANNEL_2), FET2);
             break;
-            
+           
+		// receipt printers
         case 52:
         case 53:
         case 54:
@@ -409,12 +408,7 @@ void setup()
             addFlapper(midimap(CHANNEL_1), FET4, FET3);
             break;
             
-        default:
-            addOsc(midimap(CHANNEL_1), FET1);
-            addOsc(midimap(CHANNEL_2), FET2);
-            addOsc(midimap(CHANNEL_3), FET3);
-            addOsc(midimap(CHANNEL_4), FET4);
-            break;
+ 
     }
 }
 
