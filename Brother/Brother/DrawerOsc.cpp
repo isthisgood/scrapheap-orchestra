@@ -42,7 +42,7 @@ void playDrawerOsc(DrawerOsc *o, int note, int vel)
     shiftPin(o->enableShiftPin, 1);
     
     // optimum note for driving drawers is C3?
-    float f = mtof(mC3);
+    float f = mtof(mC4);
     float u = 1000000.f/f;
     o->uPeriod = u;
     o->halfPeriod = o->uPeriod/2;

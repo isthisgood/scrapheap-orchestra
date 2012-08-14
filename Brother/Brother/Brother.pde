@@ -54,7 +54,6 @@ void setup()
         // PORT 1
         // oki 3410 group 1
         case 1:
-        case 2:
         case 3:
         case 4:
         case 5:
@@ -62,6 +61,24 @@ void setup()
         case 7:
             // heads
             addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
+            // pins
+            addOsc(midimap(CHANNEL_2), FET2);
+            // form feed
+            addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
+            
+            addShiftSwitcher(midimap(CHANNEL_1), LED1);
+            addShiftSwitcher(midimap(CHANNEL_1), LED2);
+            addShiftSwitcher(midimap(CHANNEL_1), LED3);
+            addShiftSwitcher(midimap(CHANNEL_2), LED4);
+            addShiftSwitcher(midimap(CHANNEL_2), LED5);
+            addShiftSwitcher(midimap(CHANNEL_3), LED6);
+            addShiftSwitcher(midimap(CHANNEL_3), LED7);
+            addShiftSwitcher(midimap(CHANNEL_3), LED8);
+            break;
+
+        case 59://case 2:
+            // heads
+            addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET3);
             // pins
             addOsc(midimap(CHANNEL_2), FET2);
             // form feed
@@ -107,8 +124,8 @@ void setup()
         // manisman tallys
         case 13:
             // heads
-            addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
-            addLimitStepOsc(midimap(CHANNEL_1), DIR2, STEP2, EN2, LIMIT2);
+            addControlStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1);
+            addControlStepOsc(midimap(CHANNEL_1), DIR2, STEP2, EN2);
             
             // form feeds
             addControlStepOsc(midimap(CHANNEL_2), DIR3, STEP3, EN3);
@@ -121,7 +138,7 @@ void setup()
             // head
             addLimitMotorOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1, FET1);
             // form feed
-            addControlMotorOsc(midimap(CHANNEL_4), FET1, FET2);
+            addControlMotorOsc(midimap(CHANNEL_4), FET2, FET3);
             break;
             
         // dpx group 1
@@ -130,7 +147,7 @@ void setup()
             // solenoid
             addSwitcher(midimap(CHANNEL_5), FET1);
             // head
-            addLimitMotorOsc(midimap(CHANNEL_6), DIR1, STEP1, EN1, LIMIT1, FET2);
+            addLimitMotorOsc(midimap(CHANNEL_6), DIR3, STEP3, EN3, LIMIT1, FET2);
             // ff
             addControlStepOsc(midimap(CHANNEL_7), DIR2, STEP2, EN2);
             // leds - 12v
@@ -327,19 +344,27 @@ void setup()
             addFloppyOsc(midimap(CHANNEL_9), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_10), FET3, FET4);
             break;
+        case 58:
+            addFloppyOsc(midimap(CHANNEL_11), FET1, FET2);
+            addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
+            break;
+        case 60:
+            addFloppyOsc(midimap(CHANNEL_13), FET1, FET2);
+            addFloppyOsc(midimap(CHANNEL_14), FET3, FET4);
+            break;
             
         //////////////////////////////////////////
         // PORT 8
         // modems
         case 45:
-            addOsc(midimap(CHANNEL_7), FET1);
-            addOsc(midimap(CHANNEL_7), FET2);
+            addRandOsc(midimap(CHANNEL_7), FET1);
+            addRandOsc(midimap(CHANNEL_7), FET2);
             addSwitcher(midimap(CHANNEL_7), FET3);
             addSwitcher(midimap(CHANNEL_7), FET4);
             break;
         case 46:
-            addOsc(midimap(CHANNEL_6), FET1);
-            addOsc(midimap(CHANNEL_6), FET2);
+            addRandOsc(midimap(CHANNEL_6), FET1);
+            addRandOsc(midimap(CHANNEL_6), FET2);
             addSwitcher(midimap(CHANNEL_6), FET3);
             addSwitcher(midimap(CHANNEL_6), FET4);
             break;
@@ -358,18 +383,22 @@ void setup()
         case 48:
         case 49:
             addLimitStepOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1);
+            addLimitStepOsc(midimap(CHANNEL_1), DIR2, STEP2, EN2, LIMIT2);
             addSwitcher(midimap(CHANNEL_1), FET1);
+            addSwitcher(midimap(CHANNEL_1), FET2);
             break;
         case 50:
         case 51:
+            addLimitStepOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1);
             addLimitStepOsc(midimap(CHANNEL_2), DIR2, STEP2, EN2, LIMIT2);
+            addSwitcher(midimap(CHANNEL_2), FET1);
             addSwitcher(midimap(CHANNEL_2), FET2);
             break;
             
         case 52:
         case 53:
         case 54:
-        case 55:
+        case 61://case 55:
             addLimitStepOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1);
             addLimitStepOsc(midimap(CHANNEL_4), DIR2, STEP2, EN2, LIMIT2);
             break;
