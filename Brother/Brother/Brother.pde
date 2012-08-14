@@ -167,13 +167,13 @@ void setup()
             
         // faxes
         case 20:
-            addFlapper(midimap(CHANNEL_11, mC3), FET1, FET2);
-            addFlapper(midimap(CHANNEL_11, mD3), FET3, FET4);
+            addFlapper(midimap(CHANNEL_11, mC3, mCx3), FET1, FET2);
+            addFlapper(midimap(CHANNEL_11, mD3, mDx3), FET3, FET4);
             break;
         
         case 21:
-            addFlapper(midimap(CHANNEL_11, mE3), FET1, FET2);
-            addFlapper(midimap(CHANNEL_11, mF3), FET3, FET4);
+            addFlapper(midimap(CHANNEL_11, mF3, mFx3), FET1, FET2);
+            addFlapper(midimap(CHANNEL_11, mG3, mGx3), FET3, FET4);
             break;
             
    //     case 22:
