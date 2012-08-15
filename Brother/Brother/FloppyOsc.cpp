@@ -17,8 +17,8 @@ void addFloppyOsc(MidiMap midi, int dirPin, int stepPin)
 
 void initFloppyOsc(FloppyOsc *o, int dirPin, int stepPin)
 {
-    //pinMode(dirPin, OUTPUT);
-    //pinMode(stepPin, OUTPUT);
+    pinMode(dirPin, OUTPUT);
+    pinMode(stepPin, OUTPUT);
     
     o->dirPin = dirPin;
     o->stepPin = stepPin;

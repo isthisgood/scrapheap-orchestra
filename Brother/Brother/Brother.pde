@@ -64,7 +64,7 @@ void addFets(int midiChannel) {
 void setup()
 {
     initRunner();
-	//EEPROM.write(0, 42);//, <#uint8_t#>)
+//	EEPROM.write(0, 58);//, <#uint8_t#>)
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -340,7 +340,7 @@ void setup()
             break;
         case 58:
             addFloppyOsc(midimap(CHANNEL_11), FET1, FET2);
-            //addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
+            addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
             break;
         /*case 60:
             addFloppyOsc(midimap(CHANNEL_13), FET1, FET2);
@@ -367,14 +367,14 @@ void setup()
             break;
         // hero modems
         case 22:
-            addShiftSwitcher(midimap(CHANNEL_5, mA1), LED1);
-            addShiftSwitcher(midimap(CHANNEL_5, mB1), LED2);
-            addShiftSwitcher(midimap(CHANNEL_5, mC1), LED3);
-            addShiftSwitcher(midimap(CHANNEL_5, mD1), LED4);
-            addShiftSwitcher(midimap(CHANNEL_5, mE1), LED5);
-            addShiftSwitcher(midimap(CHANNEL_5, mF1), LED6);
-            addShiftSwitcher(midimap(CHANNEL_5, mG1), LED7);
-            addShiftSwitcher(midimap(CHANNEL_5, mA2), LED8);
+            addShiftSwitcher(midimap(CHANNEL_12, mC2, mD2), LED1);
+            addShiftSwitcher(midimap(CHANNEL_12, mE2, mFx2), LED2);
+            addShiftSwitcher(midimap(CHANNEL_12, mG2, mA2), LED3);
+            addShiftSwitcher(midimap(CHANNEL_12, mAx2, mB2), LED4);
+            addShiftSwitcher(midimap(CHANNEL_12, mAx2, mB2), LED5);
+            addShiftSwitcher(midimap(CHANNEL_12, mG2, mA2), LED6);
+            addShiftSwitcher(midimap(CHANNEL_12, mE2, mFx2), LED7);
+            addShiftSwitcher(midimap(CHANNEL_12, mC2, mD2), LED8);
             break;
             
 		
