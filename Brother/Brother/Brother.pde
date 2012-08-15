@@ -64,7 +64,7 @@ void addFets(int midiChannel) {
 void setup()
 {
     initRunner();
-	//EEPROM.write(0, 33);//, <#uint8_t#>)
+	//EEPROM.write(0, 42);//, <#uint8_t#>)
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -340,12 +340,12 @@ void setup()
             break;
         case 58:
             addFloppyOsc(midimap(CHANNEL_11), FET1, FET2);
-            addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
+            //addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
             break;
-        case 60:
+        /*case 60:
             addFloppyOsc(midimap(CHANNEL_13), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_14), FET3, FET4);
-            break;
+            break;*/
             
         //////////////////////////////////////////
         // PORT 8
@@ -400,6 +400,8 @@ void setup()
         case 61://case 55:
             addLimitStepOsc(midimap(CHANNEL_3), DIR1, STEP1, EN1, LIMIT1);
             addLimitStepOsc(midimap(CHANNEL_4), DIR2, STEP2, EN2, LIMIT2);
+			addShiftSwitcher(midimap(CHANNEL_3), LED1);
+			addShiftSwitcher(midimap(CHANNEL_4), LED2);
             break;
            
         /////////////////////////////////////////////////////////////////////////////////
@@ -415,5 +417,6 @@ void setup()
 void loop()
 {
 	runRunner();
+
 	
 }
