@@ -64,7 +64,7 @@ void addFets(int midiChannel) {
 void setup()
 {
     initRunner();
-//	EEPROM.write(0, 58);//, <#uint8_t#>)
+	//EEPROM.write(0, 43);//, <#uint8_t#>)
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -323,6 +323,25 @@ void setup()
             
         // floppies
         case 41:
+            addFloppyOsc(midimap(CHANNEL_3), FET3, FET4);
+            break;
+        case 42:
+            addFloppyOsc(midimap(CHANNEL_4), FET3, FET4);
+            break;
+        case 43:
+            addFloppyOsc(midimap(CHANNEL_5), FET3, FET4);
+            break;
+        case 44:
+            addFloppyOsc(midimap(CHANNEL_6), FET3, FET4);
+            break;
+        case 57:
+            addFloppyOsc(midimap(CHANNEL_7), FET3, FET4);
+            break;
+        case 58:
+            addFloppyOsc(midimap(CHANNEL_8), FET3, FET4);
+            break;
+            
+        /*case 41:
             addFloppyOsc(midimap(CHANNEL_3), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_4), FET3, FET4);
             break;
@@ -341,7 +360,9 @@ void setup()
         case 58:
             addFloppyOsc(midimap(CHANNEL_11), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
-            break;
+            //addSwitcher(midimap(CHANNEL_11), 13);
+            //addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
+            break;*/
         /*case 60:
             addFloppyOsc(midimap(CHANNEL_13), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_14), FET3, FET4);
