@@ -64,7 +64,11 @@ void addFets(int midiChannel) {
 void setup()
 {
     initRunner();
-	//EEPROM.write(0, 45);//, <#uint8_t#>)
+<<<<<<< HEAD
+//	EEPROM.write(0, 58);//, <#uint8_t#>)
+=======
+	//EEPROM.write(0, 43);//, <#uint8_t#>)
+>>>>>>> ace819a250ffa9f2ab4bb6f2c11edfb8e5fe802d
 	int id = EEPROM.read(0);
     
     switch (id)
@@ -77,18 +81,16 @@ void setup()
         case 4:
         case 5:
         case 6:
-        case 40:
+        case 7:
             // heads
             addLimitMotorOsc(midimap(CHANNEL_1), DIR1, STEP1, EN1, LIMIT1, FET1);
             // pins
             addOsc(midimap(CHANNEL_2), FET2);
             // form feed
             addControlStepOsc(midimap(CHANNEL_3), DIR2, STEP2, EN2);
-			
+
             addLeds123();
             break;
-		
-			
 
         case 59://case 2:
             // heads
@@ -316,46 +318,32 @@ void setup()
             break;
 		*/
         // i80 group 2
-        /*case 40:
+        case 40:
             // motor
             addLimitStepOsc(midimap(CHANNEL_2), DIR1, STEP1, EN1, LIMIT1);
             // light
             addSwitcher(midimap(CHANNEL_2), FET1);
             break;
-          */  
+            
         // floppies
-        case 60:
+        case 41:
             addFloppyOsc(midimap(CHANNEL_3), FET3, FET4);
             break;
-        case 43:
+        case 42:
             addFloppyOsc(midimap(CHANNEL_4), FET3, FET4);
             break;
-			case 42:
-            addFloppyOsc(midimap(CHANNEL_5), FET3, FET4);
-            break;
-		case 41:
-            addFloppyOsc(midimap(CHANNEL_6), FET3, FET4);
-            break;
-			
-		case 58:
-            addFloppyOsc(midimap(CHANNEL_7), FET3, FET4);
-            break;
-		case 45:
-            addFloppyOsc(midimap(CHANNEL_8), FET3, FET4);
-			addSwitcher(midimap(CHANNEL_8), 13);//, <#int pin#>)
-            break;
-			
-			/*
         case 43:
             addFloppyOsc(midimap(CHANNEL_5), FET3, FET4);
             break;
-        
+        case 44:
+            addFloppyOsc(midimap(CHANNEL_6), FET3, FET4);
+            break;
         case 57:
             addFloppyOsc(midimap(CHANNEL_7), FET3, FET4);
             break;
         case 58:
             addFloppyOsc(midimap(CHANNEL_8), FET3, FET4);
-            break;*/
+            break;
             
         /*case 41:
             addFloppyOsc(midimap(CHANNEL_3), FET1, FET2);
@@ -376,9 +364,13 @@ void setup()
         case 58:
             addFloppyOsc(midimap(CHANNEL_11), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
+<<<<<<< HEAD
+            break;
+=======
             //addSwitcher(midimap(CHANNEL_11), 13);
             //addFloppyOsc(midimap(CHANNEL_12), FET3, FET4);
             break;*/
+>>>>>>> ace819a250ffa9f2ab4bb6f2c11edfb8e5fe802d
         /*case 60:
             addFloppyOsc(midimap(CHANNEL_13), FET1, FET2);
             addFloppyOsc(midimap(CHANNEL_14), FET3, FET4);
@@ -446,10 +438,6 @@ void setup()
         case 62:
             addFlapper(midimap(CHANNEL_1), FET4, FET3);
             break;
-			
-		//case 60:
-		//	addFloppyOsc(midimap(CHANNEL_1), FET3, FET4);
-		//	break;
             
  
     }
